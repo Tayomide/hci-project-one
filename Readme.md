@@ -1,7 +1,7 @@
 This repository is a website project from ITMD 362 course.
 
-PROJECT DESCRIPTION
-You will create a compelling, multi-page process that walks a user through
+PROJECT DESCRIPTION: You will create a compelling, multi-page process that walks
+a user through
 payment, billing, and shipping options to complete the order of a pre-selected
 set of items in the user’s shopping cart. The goal of this project is to
 experiment with patterns of interaction that make it as effortless as possible
