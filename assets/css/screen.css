@@ -7,3 +7,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 /* House styles below */
+html{
+  font-size: 1.125em;/* 18/16 = */
+  line-height: 1.2em;
+}
+body{
+  display: grid;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
