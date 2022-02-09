@@ -19,6 +19,19 @@ body{
   display: grid;
 }
 
+header{
+  display: grid;
+  grid-template-columns: repeat( 12, 1fr);
+}
+
+header nav{
+  grid-column: 2/10;
+}
+
+header button{
+  grid-column: 11/12;
+}
+
 form{
   padding: 0 1em;
 }
