@@ -13,16 +13,28 @@
     </header>
     <main>
       <form>
-        <label for="cardname">Name on Card</label>
-        <input type="text" name="cardname"/>
-        <label for="cardnumber">Card Number</label>
-        <input type="number" name="cardnumber"/>
-        <label for="expirationdate">Expiration Date</label>
-        <!-- Check type tel online -->
-        <input type="tel" name="expirationdate"/>
-        <label for="cvv">CVV</label>
-        <input type="number" name="cvv" pattern="[0-9]{2}/[0-9]{2}"/>
-        <button type="submit"/>Use this card</button>
+        <ol>
+          <li>
+            <label for="cardname">Name on Card</label>
+            <input type="text" name="cardname"/>
+          </li>
+          <li>
+            <label for="cardnumber">Card Number</label>
+            <input type="number" name="cardnumber"/>
+          </li>
+          <li>
+            <label for="expirationdate">Expiration Date</label>
+            <!-- Check type tel online -->
+            <input type="tel" name="expirationdate"/>
+          </li>
+          <li>
+            <label for="cvv">CVV</label>
+            <input type="number" name="cvv" pattern="[0-9]{2}/[0-9]{2}"/>
+          </li>
+          <li>
+            <button type="submit"/>Use this card</button>
+          </li>
+        </ol>
       </form>
     </main>
     <footer>
