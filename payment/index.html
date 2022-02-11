@@ -22,20 +22,19 @@
         <ol>
           <li>
             <label for="cardname">Name on Card</label>
-            <input type="text" name="cardname"/>
+            <input type="text" name="cardname" placeholder="Name on Card"/>
           </li>
           <li>
             <label for="cardnumber">Card Number</label>
-            <input type="number" name="cardnumber"/>
+            <input type="number" name="cardnumber" placeholder="Card Number"/>
           </li>
           <li class="half">
             <label for="expirationdate">Expiration Date</label>
-            <!-- Check type tel online -->
-            <input type="tel" name="expirationdate"/>
+            <input type="month" name="expirationdate" pattern="[0-9]{4}-[0-9]{2}" placeholder="yyyy-mm"/>
           </li>
           <li class="half">
             <label for="cvv">CVV</label>
-            <input type="number" name="cvv" pattern="[0-9]{2}/[0-9]{2}"/>
+            <input type="number" name="cvv" placeholder="CVV"/>
           </li>
           <li>
             <button type="submit"/>Use this card</button>
