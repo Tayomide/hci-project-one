@@ -15,6 +15,13 @@ html{
   line-height: 1.2em;/* 21.6/18 = 1.2em*/
 }
 
+button{
+  padding: 0;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+}
+
 body{
   display: grid;
 }
@@ -41,6 +48,7 @@ header nav a{
 
 header button{
   grid-column: 11/12;
+
 }
 
 form{
