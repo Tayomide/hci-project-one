@@ -35,8 +35,8 @@ var products = [
     price:""}
 ];
 
-function makeOL(){
+function makeOL(array, id, selected){
 
 }
 
-makeOL()
+makeOL();
