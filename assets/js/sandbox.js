@@ -34,3 +34,9 @@ var products = [
     image_url:"image_url",
     price:""}
 ];
+
+function makeOL(){
+
+}
+
+makeOL()
