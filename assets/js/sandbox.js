@@ -41,4 +41,5 @@ function makeOL(array, id, selected){
 
 }
 
-makeOL();
+// Home page initialization
+makeOL(products, 'product_list', default_selector);
