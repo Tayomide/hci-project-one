@@ -50,9 +50,16 @@ function makeOL(array, id, selected){
 
   for ( i in selected ) {
     listItems[i].appendChild(document.createElement('img'));
+    listItems[i].querySelector('img').src = array[i].image_url;
     listItems[i].appendChild(document.createElement('p'));
+    listItems[i].querySelector('p').className = "name";
+    listItems[i].querySelector('p').innerHTML = array[i].name;
     listItems[i].appendChild(document.createElement('p'));
+    listItems[i].querySelector('p:not(.name)').className = "description";
+    listItems[i].querySelector('p:not(.name)').innerHTML = array[i].description;
     listItems[i].appendChild(document.createElement('p'));
+    listItems[i].querySelector('p:not(.name, .description)').className = "price";
+    listItems[i].querySelector('p:not(.name, .description)').innerHTML = array[i].price;
   }
 }
 
