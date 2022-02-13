@@ -1,36 +1,38 @@
 "use strict";
+
+
 var information =[
-  { Shipping: {
-    Country:"",
-    Fullname:"",
-    Phonenumber:"",
-    Address:"",
-    City:"",
-    State:"",
-    Zip:""
-  }},
-  { Billing: {
-    Country:"",
-    Fullname:"",
-    Phonenumber:"",
-    Address:"",
-    City:"",
-    State:"",
-    Zip:""
-  }},
-  { Payment: {
-    Name:"",
-    Number:"",
-    Expiry:"",
-    Cvv:""
-  }},
-  { Summary: {
-    Subtotal:"",
-    Tax:"",
-    Shipping:"",
-    Coupon:"",
-    Total:""
-  }}
+  {
+    Country:"shippingCountry",
+    Fullname:"shippingFullName",
+    Phonenumber:"shippingPhoneNumber",
+    Address:"shippingAddress",
+    City:"shippingCity",
+    State:"shippingState",
+    Zip:"shippingZip"
+  },
+  {
+    Country:"billingCountry",
+    Fullname:"billingFullName",
+    Phonenumber:"billingPhoneNumber",
+    Address:"billingAddress",
+    City:"billingCity",
+    State:"billingState",
+    Zip:"billingZip"
+  },
+  {
+    Name:"cardName",
+    Number:"cardNumber",
+    Expiry:"cardExpiry",
+    Cvv:"cardCvv"
+  },
+  {
+    Subtotal:"priceSubtotal",
+    Tax:"priceTax",
+    Shipping:"priceShipping",
+    Coupon:"priceCoupon",
+    Total:"priceTotal"
+  }
 ];
 
 var products = [
