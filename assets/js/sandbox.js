@@ -108,7 +108,7 @@ try {
 // Getting form fields data
 function doForm(integer) {
   if (parseInt(integer) === 1 || parseInt(integer) === 0){
-    // Use local storage
+    // Use local storage to store input data
     console.log(document.forms[0].country.value);
     localStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
     localStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
