@@ -1,4 +1,37 @@
 "use strict";
+var information =[
+  { Shipping: {
+    Country:"",
+    Fullname:"",
+    Phonenumber:"",
+    Address:"",
+    City:"",
+    State:"",
+    Zip:""
+  }},
+  { Billing: {
+    Country:"",
+    Fullname:"",
+    Phonenumber:"",
+    Address:"",
+    City:"",
+    State:"",
+    Zip:""
+  }},
+  { Payment: {
+    Name:"",
+    Number:"",
+    Expiry:"",
+    Cvv:""
+  }},
+  { Summary: {
+    Subtotal:"",
+    Tax:"",
+    Shipping:"",
+    Coupon:"",
+    Total:""
+  }}
+];
 
 var products = [
   {name:"Wristwatch",
@@ -65,3 +98,5 @@ function makeOL(array, id, selected){
 
 // Home page initialization
 makeOL(products, 'product_list', default_selector);
+
+// Getting form fields data
