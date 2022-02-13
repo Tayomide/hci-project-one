@@ -99,6 +99,30 @@ function makeOL(array, id, selected){
 }
 
 // Home page initialization
-makeOL(products, 'product_list', default_selector);
+try {
+  makeOL(products, 'product_list', default_selector);
+} catch (error) {
+  console.log("Not in homepage");
+}
 
 // Getting form fields data
+function doForm(integer) {
+  if (parseInt(integer) === 1 || parseInt(integer) === 0){
+    // Use local storage
+    console.log(document.forms[0].country.value);
+    localStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
+    localStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
+    localStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
+    localStorage.setItem(information[parseInt(integer)].Address, document.forms[0].address.value);
+    localStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
+    localStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
+    localStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
+  }
+  else{
+    localStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
+    localStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
+    localStorage.setItem(information[parseInt(integer)].Expriry, document.forms[0].expirationdate.value);
+    localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
+  }
+  console.log(information);
+}
