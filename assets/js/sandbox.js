@@ -129,3 +129,14 @@ function doForm(integer) {
   }
   console.log(information);
 }
+
+function populate(){
+  document.forms[0].country.value = localStorage.getItem(information[0].Country);
+  document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
+  document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
+  document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
+  document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
+  document.forms[0].city.value = localStorage.getItem(information[0].City);
+  document.forms[0].state.value = localStorage.getItem(information[0].State);
+  document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
+}
