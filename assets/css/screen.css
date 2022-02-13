@@ -89,3 +89,10 @@ form ol li input{
   margin: 0;
   height: 2em;/* 24/18 = 1.6em*/
 }
+
+/* Review Design */
+#cart main{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1.5em;
+}
