@@ -6,7 +6,8 @@ var information =[
     Country:"shippingCountry",
     Fullname:"shippingFullName",
     Phonenumber:"shippingPhoneNumber",
-    Address:"shippingAddress",
+    Address1:"shippingAddress1",
+    Address2:"shippingAddress2",
     City:"shippingCity",
     State:"shippingState",
     Zip:"shippingZip"
@@ -15,7 +16,8 @@ var information =[
     Country:"billingCountry",
     Fullname:"billingFullName",
     Phonenumber:"billingPhoneNumber",
-    Address:"billingAddress",
+    Address1:"billingAddress1",
+    Address2:"billingAddress2",
     City:"billingCity",
     State:"billingState",
     Zip:"billingZip"
@@ -113,7 +115,8 @@ function doForm(integer) {
     localStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
     localStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
     localStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
-    localStorage.setItem(information[parseInt(integer)].Address, document.forms[0].address.value);
+    localStorage.setItem(information[parseInt(integer)].Address1, document.forms[0].address[0].value);
+    localStorage.setItem(information[parseInt(integer)].Address2, document.forms[0].address[1].value);
     localStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
     localStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
     localStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
