@@ -18,44 +18,42 @@
       <button type="button">Cart</button>
     </header>
     <main id="shipping">
-      <form onsubmit="return doForm(0)">
+      <form>
         <ol>
           <li>
             <label for="country">Country/Region</label>
-            <input type="text" name="country" placeholder="Country" required="required"/>
+            <input type="text" id="country" name="country" placeholder="Country" required="required"/>
           </li>
           <li>
             <label for="fullname">Full Name (First Name and Last Name)</label>
-            <input type="text" name="fullname" placeholder="Full Name" required="required"/>
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required="required"/>
           </li>
           <li>
             <label for="telephone">Phone Number</label>
             <!-- Check type tel online -->
-            <input type="tel" name="telephone" required="required"/>
+            <input type="tel" id="telephone" name="telephone" required="required"/>
           </li>
           <li>
             <label for="address">Address</label>
             <input type="text" name="address" placeholder="Street address or P.O Box" required="required"/>
-            <input type="text" name="address" placeholder="Apt, suite, unit, building, floor, etc."/>
+            <input type="text" id="address" name="address" placeholder="Apt, suite, unit, building, floor, etc."/>
           </li>
           <li class="half">
             <label for="city">City</label>
-            <input type="text" name="city" placeholder="City" required="required"/>
+            <input type="text" id="city" name="city" placeholder="City" required="required"/>
           </li>
           <li class="half">
             <label for="state">State</label>
-            <input type="text" name="state" placeholder="State / Province" required="required"/>
+            <input type="text" id="state" name="state" placeholder="State / Province" required="required"/>
           </li>
           <li class="half">
             <label for="zip">Zip Code</label>
-            <input type="number" name="zip" placeholder="Zip code" required="required"/>
+            <input type="number" id="zip" name="zip" placeholder="Zip code" required="required"/>
           </li>
           <li>
-            <button type="submit"/>Use this shipping information</button>
+            <button type="button" onclick="doForm(0)"/>Use this shipping information</button>
           </li>
         </ol>
-
-
       </form>
     </main>
     <footer>
