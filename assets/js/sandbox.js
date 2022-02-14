@@ -129,6 +129,7 @@ function doForm(integer) {
       localStorage.setItem(information[parseInt(integer)].Expriry, document.forms[0].expirationdate.value);
       localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
     }
+    document.forms[0].reset();
   }
   console.log(information);
 }
