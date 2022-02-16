@@ -80,15 +80,16 @@ form ol li label, form ol li input {
   grid-column: 1/5;
 }
 
-form ol li input:focus-visible {
-  outline: 0;
-}
 form ol li input {
   font-size: 0.833333em; /* 15/18 = 0.833333em*/
   border: 0.1px solid gray;
   padding: 0 0 0 0.4em; /* 6/15 = 0.4em*/
   margin: 0;
   height: 2em;/* 24/18 = 1.6em*/
+}
+
+form ol li input:focus-visible {
+  outline: 0;
 }
 
 /* Review Design */
