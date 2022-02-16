@@ -113,7 +113,6 @@ function doForm(integer) {
   if(document.forms[0].checkValidity()){
     if (parseInt(integer) === 1 || parseInt(integer) === 0){
       // Use local storage to store input data
-      console.log(document.forms[0].country.value);
       localStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
       localStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
       localStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
@@ -131,7 +130,6 @@ function doForm(integer) {
     }
     document.forms[0].reset();
   }
-  console.log(information);
 }
 
 function populate(){
