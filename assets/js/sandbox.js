@@ -181,7 +181,7 @@ function populate(){
       document.forms[0].state.value = localStorage.getItem(information[1].State);
       document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
     }
-  } else if(location === "/cart/"){ // payment
+  } else if(location === "/payment/"){ // payment
     if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
       document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
       document.forms[0].cardname.value = localStorage.getItem(information[2].Number);
