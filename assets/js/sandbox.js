@@ -123,7 +123,7 @@ function doForm(integer) {
     } else{
       localStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
       localStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
-      localStorage.setItem(information[parseInt(integer)].Expriry, document.forms[0].expirationdate.value);
+      localStorage.setItem(information[parseInt(integer)].Expiry, document.forms[0].expirationdate.value);
       localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
     }
     if(parseInt(integer) === 0 && document.querySelector('#bill').checked){
