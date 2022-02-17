@@ -142,16 +142,18 @@ function doForm(integer) {
   }
 }
 
-billButton.addEventListener('click', function (){
-  document.forms[0].country.value = localStorage.getItem(information[1].Country);
-  document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
-  document.forms[0].telephone.value = localStorage.getItem(information[1].Phonenumber);
-  document.forms[0].address[0].value = localStorage.getItem(information[1].Address1);
-  document.forms[0].address[1].value = localStorage.getItem(information[1].Address2);
-  document.forms[0].city.value = localStorage.getItem(information[1].City);
-  document.forms[0].state.value = localStorage.getItem(information[1].State);
-  document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
-});
+if(document.location.pathname === "/billing/"){
+  billButton.addEventListener('click', function (){
+    document.forms[0].country.value = localStorage.getItem(information[1].Country);
+    document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
+    document.forms[0].telephone.value = localStorage.getItem(information[1].Phonenumber);
+    document.forms[0].address[0].value = localStorage.getItem(information[1].Address1);
+    document.forms[0].address[1].value = localStorage.getItem(information[1].Address2);
+    document.forms[0].city.value = localStorage.getItem(information[1].City);
+    document.forms[0].state.value = localStorage.getItem(information[1].State);
+    document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
+  });
+}
 
 function populate(){
   // get current user location
