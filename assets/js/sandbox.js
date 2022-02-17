@@ -103,10 +103,8 @@ function makeOL(array, id, selected){
 }
 
 // Home page initialization
-try {
+if(window.location.pathname === "/"){
   makeOL(products, 'product-list', default_selector);
-} catch (error) {
-  console.log("Not in homepage");
 }
 
 // Getting form fields data
