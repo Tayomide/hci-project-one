@@ -139,7 +139,7 @@ function doForm(integer) {
       localStorage.setItem(information[1].State, document.forms[0].state.value);
       localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
     }
-    document.forms[0].reset();
+    location.replace('/cart');
   }
 }
 
