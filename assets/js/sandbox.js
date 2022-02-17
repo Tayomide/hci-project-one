@@ -122,8 +122,7 @@ function doForm(integer) {
       localStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
       localStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
       localStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
-    }
-    else{
+    } else{
       localStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
       localStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
       localStorage.setItem(information[parseInt(integer)].Expriry, document.forms[0].expirationdate.value);
