@@ -152,3 +152,42 @@ billButton.addEventListener('click', function (){
   document.forms[0].state.value = localStorage.getItem(information[1].State);
   document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
 });
+
+function populate(){
+  // get current user location
+  var location = document.location.pathname;
+  // shipping
+  if(location === "/shipping/") {
+    if(typeof localStorage.getItem(information[0].Country) !== 'undefined'){
+      document.forms[0].country.value = localStorage.getItem(information[0].Country);
+      document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
+      document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
+      document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
+      document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
+      document.forms[0].city.value = localStorage.getItem(information[0].City);
+      document.forms[0].state.value = localStorage.getItem(information[0].State);
+      document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
+    }
+  } else if(location === "/billing/"){// billing
+    if(typeof localStorage.getItem(information[1].Country) !== 'undefined'){
+      document.forms[0].country.value = localStorage.getItem(information[1].Country);
+      document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
+      document.forms[0].telephone.value = localStorage.getItem(information[1].Phonenumber);
+      document.forms[0].address[0].value = localStorage.getItem(information[1].Address1);
+      document.forms[0].address[1].value = localStorage.getItem(information[1].Address2);
+      document.forms[0].city.value = localStorage.getItem(information[1].City);
+      document.forms[0].state.value = localStorage.getItem(information[1].State);
+      document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
+    }
+  } else if(location === "/cart/"){ // payment
+    if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
+      document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
+      document.forms[0].cardname.value = localStorage.getItem(information[2].Number);
+      document.forms[0].expirationdate.value = localStorage.getItem(information[2].Expiry);
+      document.forms[0].cvv.value = localStorage.getItem(information[2].Cvv);
+    }
+  }
+  console.log("worked");
+}
+
+populate();
