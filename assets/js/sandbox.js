@@ -184,7 +184,7 @@ function populate(){
   } else if(location === "/payment/"){ // payment
     if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
       document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
-      document.forms[0].cardname.value = localStorage.getItem(information[2].Number);
+      document.forms[0].cardnumber.value = localStorage.getItem(information[2].Number);
       document.forms[0].expirationdate.value = localStorage.getItem(information[2].Expiry);
       document.forms[0].cvv.value = localStorage.getItem(information[2].Cvv);
     }
