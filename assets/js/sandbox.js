@@ -75,6 +75,7 @@ var products = [
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+var billButton = document.querySelector('#address-populate');
 function makeOL(array, id, selected){
   var i;
   var listItems;
@@ -103,7 +104,7 @@ function makeOL(array, id, selected){
 
 // Home page initialization
 try {
-  makeOL(products, 'product_list', default_selector);
+  makeOL(products, 'product-list', default_selector);
 } catch (error) {
   console.log("Not in homepage");
 }
@@ -132,7 +133,7 @@ function doForm(integer) {
   }
 }
 
-function populate(){
+billButton.addEventListener('click', function (){
   document.forms[0].country.value = localStorage.getItem(information[0].Country);
   document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
   document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
@@ -141,4 +142,4 @@ function populate(){
   document.forms[0].city.value = localStorage.getItem(information[0].City);
   document.forms[0].state.value = localStorage.getItem(information[0].State);
   document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
-}
+});
