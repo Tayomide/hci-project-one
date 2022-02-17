@@ -189,7 +189,6 @@ function populate(){
       document.forms[0].cvv.value = localStorage.getItem(information[2].Cvv);
     }
   }
-  console.log("worked");
 }
 
 populate();
