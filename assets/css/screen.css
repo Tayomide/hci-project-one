@@ -92,6 +92,23 @@ form ol li input:focus-visible {
   outline: 0;
 }
 
+.flex{
+  display: flex;
+}
+
+form ol li #bill{
+  height: fit-content;
+  margin-right: 0.2em;
+}
+
+form ol .flex{
+  align-items: center;
+}
+
+form ol .flex input, form ol .flex label{
+  cursor: pointer;
+}
+
 /* Review Design */
 #cart main {
   display: grid;
