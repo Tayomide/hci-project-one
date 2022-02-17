@@ -129,6 +129,16 @@ function doForm(integer) {
       localStorage.setItem(information[parseInt(integer)].Expriry, document.forms[0].expirationdate.value);
       localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
     }
+    if(parseInt(integer) === 0 && document.querySelector('#bill').checked){
+      localStorage.setItem(information[1].Country, document.forms[0].country.value);
+      localStorage.setItem(information[1].Fullname, document.forms[0].fullname.value);
+      localStorage.setItem(information[1].Phonenumber, document.forms[0].telephone.value);
+      localStorage.setItem(information[1].Address1, document.forms[0].address[0].value);
+      localStorage.setItem(information[1].Address2, document.forms[0].address[1].value);
+      localStorage.setItem(information[1].City, document.forms[0].city.value);
+      localStorage.setItem(information[1].State, document.forms[0].state.value);
+      localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
+    }
     document.forms[0].reset();
   }
 }
