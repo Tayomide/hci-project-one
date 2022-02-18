@@ -103,7 +103,7 @@ function makeOL(array, id, selected){
 }
 
 // Home page initialization
-if(window.location.pathname === "/"){
+if(location.pathname === "/"){
   makeOL(products, 'product-list', default_selector);
 }
 
@@ -140,7 +140,7 @@ function doForm(integer) {
   }
 }
 
-if(document.location.pathname === "/billing/"){
+if(location.pathname === "/billing/"){
   billButton.addEventListener('click', function (){
     document.forms[0].country.value = localStorage.getItem(information[1].Country);
     document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
@@ -155,9 +155,8 @@ if(document.location.pathname === "/billing/"){
 
 function populate(){
   // get current user location
-  var location = document.location.pathname;
   // shipping
-  if(location === "/shipping/") {
+  if(location.pathname === "/shipping/") {
     if(typeof localStorage.getItem(information[0].Country) !== 'undefined'){
       document.forms[0].country.value = localStorage.getItem(information[0].Country);
       document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
@@ -168,7 +167,7 @@ function populate(){
       document.forms[0].state.value = localStorage.getItem(information[0].State);
       document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
     }
-  } else if(location === "/billing/"){// billing
+  } else if(location.pathname === "/billing/"){// billing
     if(typeof localStorage.getItem(information[1].Country) !== 'undefined'){
       document.forms[0].country.value = localStorage.getItem(information[1].Country);
       document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
@@ -179,7 +178,7 @@ function populate(){
       document.forms[0].state.value = localStorage.getItem(information[1].State);
       document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
     }
-  } else if(location === "/payment/"){ // payment
+  } else if(location.pathname === "/payment/"){ // payment
     if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
       document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
       document.forms[0].cardnumber.value = localStorage.getItem(information[2].Number);
