@@ -106,6 +106,22 @@ if(location.pathname === "/"){
   makeOL(products, 'product-list', default_selector);
 }
 
+function makeP(object, id){
+  var i;
+  var paragraphItems;
+
+  // Add appropriate number of list
+  for ( i = 0; i < Object.keys(object).length; i++) {
+    document.getElementById(id).appendChild(document.createElement('p'));
+  }
+
+  paragraphItems = document.getElementById(id).getElementsByTagName('p');
+
+  for ( i = 0; i < Object.keys(object).length; i++ ) {
+    paragraphItems[i].innerHTML = localStorage.getItem(Object.values(object)[i]);
+  }
+}
+
 // Getting form fields data
 function doForm(integer) {
   if(document.forms[0].checkValidity()){
@@ -188,3 +204,9 @@ function populate(){
 }
 
 populate();
+
+if (location.pathname === '/cart/') {
+  makeP(information[0], "shipping-address");
+  makeP(information[1], "billing-address");
+  makeP(information[2], "payment-info");
+}
