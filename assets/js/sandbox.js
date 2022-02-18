@@ -73,10 +73,10 @@ var products = [
     price:""}
 ];
 // Default selector in the event every object in array is needed e.g home page
-var default_selector = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 
 var billButton = document.querySelector('#address-populate');
-function makeOL(array, id, selected){
+function makeOL(object, id, selected){
   var i;
   var listItems;
 
@@ -86,19 +86,18 @@ function makeOL(array, id, selected){
   }
 
   listItems = document.getElementById(id).getElementsByTagName('li');
-
   for ( i in selected ) {
     listItems[i].appendChild(document.createElement('img'));
-    listItems[i].querySelector('img').src = array[i].image_url;
+    listItems[i].querySelector('img').src = object[i].image_url;
     listItems[i].appendChild(document.createElement('p'));
     listItems[i].querySelector('p').className = "name";
-    listItems[i].querySelector('p').innerHTML = array[i].name;
+    listItems[i].querySelector('p').innerHTML = object[i].name;
     listItems[i].appendChild(document.createElement('p'));
     listItems[i].querySelector('p:not(.name)').className = "description";
-    listItems[i].querySelector('p:not(.name)').innerHTML = array[i].description;
+    listItems[i].querySelector('p:not(.name)').innerHTML = object[i].description;
     listItems[i].appendChild(document.createElement('p'));
     listItems[i].querySelector('p:not(.name, .description)').className = "price";
-    listItems[i].querySelector('p:not(.name, .description)').innerHTML = array[i].price;
+    listItems[i].querySelector('p:not(.name, .description)').innerHTML = object[i].price;
   }
 }
 
