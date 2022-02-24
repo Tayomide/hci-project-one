@@ -101,6 +101,10 @@ function makeOL(object, id, selected){
     listItems[i].appendChild(document.createElement('p'));
     listItems[i].querySelector('p:not(.name, .description)').className = "price";
     listItems[i].querySelector('p:not(.name, .description)').innerHTML = object[i].price;
+    listItems[i].appendChild(document.createElement('button'));
+    listItems[i].querySelector('button').className = "cart";
+    listItems[i].querySelector('button').innerHTML = "Add cart";
+    listItems[i].querySelector('button').setAttribute("onclick","cartFunction("+i+")");
   }
 }
 
