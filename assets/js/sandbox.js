@@ -74,8 +74,11 @@ var products = [
 ];
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
-
 var billButton = document.querySelector('#address-populate');
+if(localStorage.getItem("cart_selector") === null){
+  localStorage.setItem("cart_selector", []);
+}
+
 function makeOL(object, id, selected){
   var i;
   var listItems;
