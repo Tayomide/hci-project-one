@@ -104,6 +104,14 @@ function makeOL(object, id, selected){
   }
 }
 
+function cartFunction(item) {
+  var cart_selc;
+  if (!localStorage.getItem("cart_selector").includes(item)){
+    cart_selc = localStorage.getItem("cart_selector").split(",");
+    cart_selc.push(item);
+    localStorage.setItem("cart_selector", cart_selc);
+  }
+}
 // Home page initialization
 if(location.pathname === "/"){
   makeOL(products, 'product-list', default_selector);
