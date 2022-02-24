@@ -102,7 +102,7 @@ form ol li #bill{
 }
 
 form ol .flex{
-  align-items: center;
+  align-items: baseline;
 }
 
 form ol .flex input, form ol .flex label{
