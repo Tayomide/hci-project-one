@@ -123,5 +123,39 @@ form ol .flex input, form ol .flex label{
 #cart main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1.5em;
+  grid-gap: 1em;
+  background-color: #999;
+}
+
+#cart main section{
+  grid-column: span 12;
+  background-color: #fff;
+  margin: 0 1em;
+  border-radius: 0.1em;
+  padding: 1em;
+}
+
+#cart main #shopping-cart{
+  margin-top: 1em;
+}
+
+#cart main #billing-address{
+  margin-bottom: 1em;
+}
+
+a.edit{
+  float: right;
+}
+
+a.edit + p{
+  padding-top: 0.5em;
+}
+
+a.edit +p+p+p+p+p+p, a.edit +p+p+p+p+p+p+p, a.edit +p+p+p+p+p+p+p+p{
+  display: inline;
+}
+
+a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
+  content: ',';
+  padding-right: 0.2em;
 }
