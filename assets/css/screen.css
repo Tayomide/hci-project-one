@@ -31,6 +31,12 @@ body {
   line-height: inherit;
 }
 
+h4{
+  font-weight:550;
+  display: inline;
+  margin-bottom: 1.5em;
+}
+
 header {
   display: grid;
   grid-template-columns: repeat( 12, 1fr);
