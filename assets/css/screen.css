@@ -159,3 +159,8 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
   content: ',';
   padding-right: 0.2em;
 }
+
+#product-list li{
+  display: flex;
+  flex-direction: row;
+}
