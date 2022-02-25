@@ -25,6 +25,7 @@ button {
   border: 0;
   background: inherit;
   cursor: pointer;
+  background-color: #0000ff21;
 }
 
 body {
