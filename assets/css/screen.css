@@ -210,6 +210,7 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
   .hide{
     display: flex;
     align-self: center;
+    justify-content: space-evenly;
   }
 }
 
