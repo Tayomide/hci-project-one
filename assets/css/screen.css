@@ -17,6 +17,7 @@ a{
 html {
   font-size: 1.125em;/* 18/16 = 1.125em*/
   line-height: 1.2em;/* 21.6/18 = 1.2em*/
+  overflow-x: hidden;
 }
 
 button {
@@ -29,6 +30,7 @@ button {
 body {
   display: grid;
   line-height: inherit;
+
 }
 
 h4{
@@ -43,6 +45,9 @@ header {
   height: 2.7777778em;/* 50/18 = 2.7777778em*/
 }
 
+.hide{
+  display: none;
+}
 header #first-nav{
   display: grid;
   grid-column: 1;
@@ -68,6 +73,10 @@ header button {
 
 header button, header nav a {
   font-size: 0.77778em; /* 14/18 = */
+}
+
+main{
+  overflow-x: hidden;
 }
 
 form {
@@ -169,4 +178,32 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
 #product-list li{
   display: flex;
   flex-direction: row;
+}
+
+@media (max-width: 500px){
+  main>nav{
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: #fff;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    right: -100vw;
+    transition: 2s;
+
+  }
+  .translate{
+    right: 0;
+  }
+  .nothide{
+    position: absolute;
+    visibility:hidden;
+    display: none!important;
+  }
+  .hide{
+    display: flex;
+    align-self: center;
+  }
 }

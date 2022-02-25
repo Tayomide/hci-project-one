@@ -78,7 +78,7 @@ var billButton = document.querySelector('#address-populate');
 if(localStorage.getItem("cart_selector") === null){
   localStorage.setItem("cart_selector", []);
 }
-
+retransform();
 function makeOL(object, id, selected){
   var i;
   var listItems;
@@ -224,4 +224,12 @@ if (location.pathname === '/cart/') {
   makeP(information[0], "shipping-address");
   makeP(information[1], "billing-address");
   makeP(information[2], "payment-info");
+}
+
+function transform(){
+  document.querySelector(".hide:not(button)").className += " translate";
+}
+
+function retransform(){
+  document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }

@@ -10,17 +10,26 @@
   <body>
     <header>
       <nav id="first-nav">
-        <a href="/shipping">Home</a>
+        <a href="#">Home</a>
       </nav>
-      <nav id="second-nav">
+      <nav class="nothide" id="second-nav">
         <a href="/shipping">Shipping</a>
         <a href="/billing">Billing</a>
         <a href="/payment">Payment</a>
         <a href="/cart">Review</a>
       </nav>
-      <button type="button">Cart</button>
+      <button class="nothide" type="button">Cart</button>
+      <button aria-hidden="true" type="button" class="hide" onClick="transform()">Cart</button>
     </header>
     <main>
+      <nav class="hide" aria-hidden="true">
+        <button class="hide" type="button" onClick="retransform()">Cart</button>
+        <a href="#">Home</a>
+        <a href="/shipping">Shipping</a>
+        <a href="/billing">Billing</a>
+        <a href="/payment">Payment</a>
+        <a href="/cart">Review</a>
+      </nav>
       <ol id="product-list">
 
       </ol>
