@@ -117,7 +117,7 @@ function cartFunction(item) {
   }
 }
 // Home page initialization
-if(location.pathname.split("/").length === 1){
+if(location.pathname.split("/").length === 3){
   makeOL(products, 'product-list', default_selector);
 }
 
