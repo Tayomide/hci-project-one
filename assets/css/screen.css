@@ -202,6 +202,10 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
     visibility:hidden;
     display: none!important;
   }
+  .hide button{
+    width: 100%;
+    font-size: 1em;
+  }
   .hide{
     display: flex;
     align-self: center;
