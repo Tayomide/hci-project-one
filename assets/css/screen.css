@@ -207,3 +207,26 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
     align-self: center;
   }
 }
+
+@media (min-width: 900px){
+  main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #cart #shopping-cart, #cart #order-summary{
+    grid-column: span 8;
+  }
+
+  #cart #shipping-address, #cart #payment-info, #cart #billing-address{
+    grid-column: span 4;
+    grid-column-start: 9;
+    grid-column-end: 13;
+    margin-left: 0;
+  }
+
+  #cart #shipping-address{
+    grid-row-start: 1;
+    margin-top: 1em;  
+  }
+
+}
