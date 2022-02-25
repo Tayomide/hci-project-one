@@ -166,11 +166,11 @@ function doForm(integer) {
       localStorage.setItem(information[1].State, document.forms[0].state.value);
       localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
     }
-    location.replace("../../"+location.pathname.split("/")[1]+"/cart");
+    location.replace("../../"+location.pathname.split("/").at(1)+"/cart");
   }
 }
 
-if(location.pathname.split("/")[-2] === "billing"){
+if(location.pathname.split("/").at(-2) === "billing"){
   billButton.addEventListener('click', function (){
     document.forms[0].country.value = localStorage.getItem(information[1].Country);
     document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
@@ -186,7 +186,7 @@ if(location.pathname.split("/")[-2] === "billing"){
 function populate(){
   // get current user location
   // shipping
-  if(location.pathname.split('/')[-2] === "shipping") {
+  if(location.pathname.split('/').at(-2) === "shipping") {
     if(typeof localStorage.getItem(information[0].Country) !== 'undefined'){
       document.forms[0].country.value = localStorage.getItem(information[0].Country);
       document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
@@ -197,7 +197,7 @@ function populate(){
       document.forms[0].state.value = localStorage.getItem(information[0].State);
       document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
     }
-  } else if(location.pathname.split('/')[-2] === "billing"){// billing
+  } else if(location.pathname.split('/').at(-2) === "billing"){// billing
     if(typeof localStorage.getItem(information[1].Country) !== 'undefined'){
       document.forms[0].country.value = localStorage.getItem(information[1].Country);
       document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
@@ -208,7 +208,7 @@ function populate(){
       document.forms[0].state.value = localStorage.getItem(information[1].State);
       document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
     }
-  } else if(location.pathname.split("/")[-2] === "payment"){ // payment
+  } else if(location.pathname.split("/").at(-2) === "payment"){ // payment
     if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
       document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
       document.forms[0].cardnumber.value = localStorage.getItem(information[2].Number);
@@ -220,7 +220,7 @@ function populate(){
 
 populate();
 
-if (location.pathname.split('/')[-2] === 'cart') {
+if (location.pathname.split('/').at(-2) === 'cart') {
   makeP(information[0], "shipping-address");
   makeP(information[1], "billing-address");
   makeP(information[2], "payment-info");
