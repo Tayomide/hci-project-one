@@ -187,7 +187,7 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
     width: 100vw;
     background: #fff;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 100;
     right: -100vw;
@@ -226,7 +226,7 @@ a.edit +p+p+p+p+p+p::after, a.edit +p+p+p+p+p+p+p::after{
 
   #cart #shipping-address{
     grid-row-start: 1;
-    margin-top: 1em;  
+    margin-top: 1em;
   }
 
 }
