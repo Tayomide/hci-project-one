@@ -43,7 +43,13 @@ header {
   height: 2.7777778em;/* 50/18 = 2.7777778em*/
 }
 
-header nav {
+header #first-nav{
+  display: grid;
+  grid-column: 1;
+  justify-items: center;
+  align-items: center;
+}
+header #second-nav {
   grid-column: 2/10;
   display: grid;
   grid-template-columns: repeat( 12, 1fr);
@@ -51,7 +57,7 @@ header nav {
   align-items: center;
 }
 
-header nav a {
+header #second-nav a {
   grid-column: span 3;
   text-decoration: none;
 }
