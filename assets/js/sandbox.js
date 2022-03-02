@@ -233,3 +233,7 @@ function transform(){
 function retransform(){
   document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }
+
+document.querySelector("#shipping form button").addEventListener("click", doForm(0));
+document.querySelector("#billing form button").addEventListener("click", doForm(1));
+document.querySelector("#payment form button").addEventListener("click", doForm(2));
