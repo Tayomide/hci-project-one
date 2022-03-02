@@ -237,3 +237,6 @@ function retransform(){
 document.querySelector("#shipping form button").addEventListener("click", doForm(0));
 document.querySelector("#billing form button").addEventListener("click", doForm(1));
 document.querySelector("#payment form button").addEventListener("click", doForm(2));
+
+document.querySelector("button.hide")[0].addEventListener("click", transform());
+document.querySelector("button.hide")[1].addEventListener("click", retransform());
