@@ -249,7 +249,7 @@ if (location.pathname.split('/').at(-2) === 'shipping') {
 }
 
 if (location.pathname.split('/').at(-2) === 'billing') {
-  document.querySelector("#billing form button").addEventListener("click", function(event){
+  document.querySelector("#billing form button[type='submit']").addEventListener("click", function(event){
     doForm(1);
     event.preventDefault();
   });
