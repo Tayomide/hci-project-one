@@ -262,9 +262,9 @@ if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(
     });
   }
 }
-document.querySelector("button.hide")[0].addEventListener("click", function(){
+document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
   transform();
 });
-document.querySelector("button.hide")[1].addEventListener("click", function(){
+document.querySelectorAll("button.hide")[1].addEventListener("click", function(){
   retransform();
 });
