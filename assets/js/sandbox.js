@@ -117,7 +117,7 @@ function cartFunction(item) {
   }
 }
 // Home page initialization
-if(location.pathname.split("/").length === 3){
+if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(-2) === "hci-project-one"){
   makeOL(products, 'product-list', default_selector);
 }
 
