@@ -254,12 +254,11 @@ if (location.pathname.split('/').at(-2) === 'payment') {
 }
 
 if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(-2) === "hci-project-one"){
-  for (button in document.querySelectorAll("#product-list button")){
+  for (button of document.querySelectorAll("#product-list button")){//I tried for in but it did not work only for of worked
     button.addEventListener("click", function(){
       cartFunction(count);
-      count++;
-      console.log(count);
     });
+    count++;
   }
 }
 document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
