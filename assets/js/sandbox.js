@@ -243,20 +243,23 @@ function retransform(){
 }
 
 if (location.pathname.split('/').at(-2) === 'shipping') {
-  document.querySelector("#shipping form button").addEventListener("click", function(){
+  document.querySelector("#shipping form button").addEventListener("click", function(event){
     doForm(0);
+    event.preventDefault();
   });
 }
 
 if (location.pathname.split('/').at(-2) === 'billing') {
-  document.querySelector("#billing form button").addEventListener("click", function(){
+  document.querySelector("#billing form button").addEventListener("click", function(event){
     doForm(1);
+    event.preventDefault();
   });
 }
 
 if (location.pathname.split('/').at(-2) === 'payment') {
-  document.querySelector("#payment form button").addEventListener("click", function(){
+  document.querySelector("#payment form button").addEventListener("click", function(event){
     doForm(2);
+    event.preventDefault();
   });
 }
 
