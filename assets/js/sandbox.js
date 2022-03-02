@@ -75,6 +75,8 @@ var products = [
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var billButton = document.querySelector('#address-populate');
+var count = 0;
+var button;
 if(localStorage.getItem("cart_selector") === null){
   localStorage.setItem("cart_selector", []);
 }
@@ -104,7 +106,6 @@ function makeOL(object, id, selected){
     listItems[i].appendChild(document.createElement('button'));
     listItems[i].querySelector('button').className = "cart";
     listItems[i].querySelector('button').innerHTML = "Add cart";
-    listItems[i].querySelector('button').setAttribute("onclick", "cartFunction("+i+")");
   }
 }
 
@@ -252,6 +253,15 @@ if (location.pathname.split('/').at(-2) === 'payment') {
   });
 }
 
+if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(-2) === "hci-project-one"){
+  for (button in document.querySelectorAll("#product-list button")){
+    button.addEventListener("click", function(){
+      cartFunction(count);
+      count++;
+      console.log(count);
+    });
+  }
+}
 document.querySelector("button.hide")[0].addEventListener("click", function(){
   transform();
 });
