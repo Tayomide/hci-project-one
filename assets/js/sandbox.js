@@ -234,16 +234,27 @@ function retransform(){
   document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }
 
-
-document.querySelector("#shipping form button").addEventListener("click", function(){
-  doForm(0);
-});
-document.querySelector("#billing form button").addEventListener("click", function(){
-  doForm(1);
-});
-document.querySelector("#payment form button").addEventListener("click", function(){
-  doForm(2);
-});
+try{
+  document.querySelector("#shipping form button").addEventListener("click", function(){
+    doForm(0);
+  });
+} catch(err){
+  console.log("not in page");
+}
+try{
+  document.querySelector("#billing form button").addEventListener("click", function(){
+    doForm(1);
+  });
+} catch(err){
+  console.log("not in page");
+}
+try{
+  document.querySelector("#payment form button").addEventListener("click", function(){
+    doForm(2);
+  });
+} catch(err){
+  console.log("not in page");
+}
 
 document.querySelector("button.hide")[0].addEventListener("click", function(){
   transform();
