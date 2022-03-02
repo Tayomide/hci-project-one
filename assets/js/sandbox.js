@@ -174,7 +174,6 @@ function doForm(integer) {
       localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
       location.replace("../payment");
     }
-    location.replace("../cart");
   }
 }
 
