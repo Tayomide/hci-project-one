@@ -234,9 +234,20 @@ function retransform(){
   document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }
 
-document.querySelector("#shipping form button").addEventListener("click", doForm(0));
-document.querySelector("#billing form button").addEventListener("click", doForm(1));
-document.querySelector("#payment form button").addEventListener("click", doForm(2));
 
-document.querySelector("button.hide")[0].addEventListener("click", transform());
-document.querySelector("button.hide")[1].addEventListener("click", retransform());
+document.querySelector("#shipping form button").addEventListener("click", function(){
+  doForm(0);
+});
+document.querySelector("#billing form button").addEventListener("click", function(){
+  doForm(1);
+});
+document.querySelector("#payment form button").addEventListener("click", function(){
+  doForm(2);
+});
+
+document.querySelector("button.hide")[0].addEventListener("click", function(){
+  transform();
+});
+document.querySelector("button.hide")[1].addEventListener("click", function(){
+  retransform();
+});
