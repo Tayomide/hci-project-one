@@ -166,7 +166,7 @@ function doForm(integer) {
       localStorage.setItem(information[1].State, document.forms[0].state.value);
       localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
     }
-    location.replace("../../"+location.pathname.split("/").at(1)+"/cart");
+    location.replace("../cart");
   }
 }
 
