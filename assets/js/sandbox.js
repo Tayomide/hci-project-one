@@ -104,7 +104,7 @@ function makeOL(object, id, selected){
     listItems[i].appendChild(document.createElement('button'));
     listItems[i].querySelector('button').className = "cart";
     listItems[i].querySelector('button').innerHTML = "Add cart";
-    listItems[i].querySelector('button').setAttribute("onclick","cartFunction("+i+")");
+    listItems[i].querySelector('button').setAttribute("onclick", "cartFunction("+i+")");
   }
 }
 
