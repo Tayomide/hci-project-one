@@ -234,26 +234,22 @@ function retransform(){
   document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }
 
-try{
+if (location.pathname.split('/').at(-2) === 'shipping') {
   document.querySelector("#shipping form button").addEventListener("click", function(){
     doForm(0);
   });
-} catch(err){
-  console.log("not in page");
 }
-try{
+
+if (location.pathname.split('/').at(-2) === 'billing') {
   document.querySelector("#billing form button").addEventListener("click", function(){
     doForm(1);
   });
-} catch(err){
-  console.log("not in page");
 }
-try{
+
+if (location.pathname.split('/').at(-2) === 'payment') {
   document.querySelector("#payment form button").addEventListener("click", function(){
     doForm(2);
   });
-} catch(err){
-  console.log("not in page");
 }
 
 document.querySelector("button.hide")[0].addEventListener("click", function(){
