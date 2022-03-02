@@ -151,11 +151,17 @@ function doForm(integer) {
       localStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
       localStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
       localStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
+      if(parseInt(integer) === 1){
+        location.replace("../payment");
+      } else if(!document.querySelector('#bill').checked){
+        location.replace("../billing");
+      }
     } else{
       localStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
       localStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
       localStorage.setItem(information[parseInt(integer)].Expiry, document.forms[0].expirationdate.value);
       localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
+      location.replace("../cart");
     }
     if(parseInt(integer) === 0 && document.querySelector('#bill').checked){
       localStorage.setItem(information[1].Country, document.forms[0].country.value);
@@ -166,6 +172,7 @@ function doForm(integer) {
       localStorage.setItem(information[1].City, document.forms[0].city.value);
       localStorage.setItem(information[1].State, document.forms[0].state.value);
       localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
+      location.replace("../payment");
     }
     location.replace("../cart");
   }
