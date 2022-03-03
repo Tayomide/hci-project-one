@@ -276,3 +276,32 @@ document.querySelectorAll("button.hide")[0].addEventListener("click", function()
 document.querySelectorAll("button.hide")[1].addEventListener("click", function(){
   retransform();
 });
+
+//I have been losing track of my javascript functions. I will slowly reorder the already made functions
+
+//Sections
+
+//Home
+if(document.querySelector("#home") !== null) {
+
+}
+
+//Shipping
+if(location.pathname.split('/').at(-2) === 'shipping') {
+
+}
+
+//Billing
+if(location.pathname.split('/').at(-2) === 'billing') {
+
+}
+
+//Payment
+if(location.pathname.split('/').at(-2) === 'payment') {
+
+}
+
+//Cart
+if(location.pathname.split('/').at(-2) === 'cart') {
+
+}
