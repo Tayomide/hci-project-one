@@ -76,10 +76,7 @@ var products = [
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
 var counte;
-if(localStorage.getItem("cart_selector") === null){
-  localStorage.setItem("cart_selector", []);
-}
-retransform();
+
 function makeOL(object, id, selected){
   var i;
   var listItems;
@@ -206,8 +203,6 @@ function populate(){
   }
 }
 
-populate();
-
 function transform(){
   document.querySelector(".hide:not(button)").className += " translate";
 }
@@ -222,6 +217,12 @@ document.querySelectorAll("button.hide")[0].addEventListener("click", function()
 document.querySelectorAll("button.hide")[1].addEventListener("click", function(){
   retransform();
 });
+
+populate();
+retransform();
+if(localStorage.getItem("cart_selector") === null){
+  localStorage.setItem("cart_selector", []);
+}
 
 // I have been losing track of my javascript functions. I will slowly reorder the already made functions
 
