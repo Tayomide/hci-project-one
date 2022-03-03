@@ -74,6 +74,7 @@ var products = [
 ];
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
+var main = document.querySelector("main");
 var billButton = document.querySelector('#address-populate');
 var count = 0;
 var button;
