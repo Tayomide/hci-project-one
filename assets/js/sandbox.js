@@ -75,9 +75,7 @@ var products = [
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
-var billButton = document.querySelector('#address-populate');
-var count = 0;
-var button;
+var counte;
 if(localStorage.getItem("cart_selector") === null){
   localStorage.setItem("cart_selector", []);
 }
@@ -118,14 +116,9 @@ function cartFunction(item) {
     localStorage.setItem("cart_selector", cart_selc);
   }
 }
-// Home page initialization
-if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(-2) === "hci-project-one"){
-  makeOL(products, 'product-list', default_selector);
-}
 
 function makeP(object, id){
-  var i;
-  var paragraphItems;
+  var i, paragraphItems;
 
   // Add appropriate number of list
   for ( i = 0; i < Object.keys(object).length; i++) {
@@ -178,19 +171,6 @@ function doForm(integer) {
   }
 }
 
-if(location.pathname.split("/").at(-2) === "billing"){
-  billButton.addEventListener('click', function (){
-    document.forms[0].country.value = localStorage.getItem(information[0].Country);
-    document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
-    document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
-    document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
-    document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
-    document.forms[0].city.value = localStorage.getItem(information[0].City);
-    document.forms[0].state.value = localStorage.getItem(information[0].State);
-    document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
-  });
-}
-
 function populate(){
   // get current user location
   // shipping
@@ -228,12 +208,6 @@ function populate(){
 
 populate();
 
-if (location.pathname.split('/').at(-2) === 'cart') {
-  makeP(information[0], "shipping-address");
-  makeP(information[1], "billing-address");
-  makeP(information[2], "payment-info");
-}
-
 function transform(){
   document.querySelector(".hide:not(button)").className += " translate";
 }
@@ -242,35 +216,6 @@ function retransform(){
   document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
 }
 
-if (location.pathname.split('/').at(-2) === 'shipping') {
-  document.querySelector("#shipping form button").addEventListener("click", function(event){
-    doForm(0);
-    event.preventDefault();
-  });
-}
-
-if (location.pathname.split('/').at(-2) === 'billing') {
-  document.querySelector("#billing form button[type='submit']").addEventListener("click", function(event){
-    doForm(1);
-    event.preventDefault();
-  });
-}
-
-if (location.pathname.split('/').at(-2) === 'payment') {
-  document.querySelector("#payment form button").addEventListener("click", function(event){
-    doForm(2);
-    event.preventDefault();
-  });
-}
-
-if(location.pathname.split("/").length === 2 || location.pathname.split("/").at(-2) === "hci-project-one"){
-  for (button of document.querySelectorAll("#product-list button")){//I tried for in but it did not work only for of worked
-    button.addEventListener("click", function(){
-      cartFunction(count);
-    });
-    count++;
-  }
-}
 document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
   transform();
 });
@@ -278,41 +223,66 @@ document.querySelectorAll("button.hide")[1].addEventListener("click", function()
   retransform();
 });
 
-//I have been losing track of my javascript functions. I will slowly reorder the already made functions
+// I have been losing track of my javascript functions. I will slowly reorder the already made functions
 
-//Sections
+// Sections
 
-//Home
-if(document.querySelector("#home") !== null) {
+// Home
+if(document.querySelector("main#home") !== null) {
+  makeOL(products, 'product-list', default_selector);
   main.addEventListener('click', function(event) {
-
+    for (counte = 0; counte < document.querySelector("ol").childElementCount; counte++) {
+      if ( event.target === document.querySelector("ol li:nth-of-type("+(counte+1)+") button")) {
+        cartFunction(counte);
+      }
+    }
   });
 }
 
-//Shipping
+// Shipping
 if(location.pathname.split('/').at(-2) === 'shipping') {
   main.addEventListener('click', function(event) {
-    
+    if (event.target === document.querySelector("#shipping form button")) {
+      doForm(0);
+      event.preventDefault();
+    }
   });
 }
 
-//Billing
+// Billing
 if(location.pathname.split('/').at(-2) === 'billing') {
   main.addEventListener('click', function(event) {
+    if (event.target === document.querySelector("#billing form button[type='submit']")) {
+      doForm(1);
+      event.preventDefault();
+    }
 
+    if (event.target === document.querySelector("#address-populate")) {
+      document.forms[0].country.value = localStorage.getItem(information[0].Country);
+      document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
+      document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
+      document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
+      document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
+      document.forms[0].city.value = localStorage.getItem(information[0].City);
+      document.forms[0].state.value = localStorage.getItem(information[0].State);
+      document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
+    }
   });
 }
 
-//Payment
+// Payment
 if(location.pathname.split('/').at(-2) === 'payment') {
   main.addEventListener('click', function(event) {
-
+    if (event.target === document.querySelector("#payment form button")) {
+      doForm(2);
+      event.preventDefault();
+    }
   });
 }
 
-//Cart
+// Cart
 if(location.pathname.split('/').at(-2) === 'cart') {
-  main.addEventListener('click', function(event) {
-
-  });
+  makeP(information[0], "shipping-address");
+  makeP(information[1], "billing-address");
+  makeP(information[2], "payment-info");
 }
