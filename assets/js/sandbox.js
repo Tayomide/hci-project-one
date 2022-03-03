@@ -284,25 +284,35 @@ document.querySelectorAll("button.hide")[1].addEventListener("click", function()
 
 //Home
 if(document.querySelector("#home") !== null) {
+  main.addEventListener('click', function(event) {
 
+  });
 }
 
 //Shipping
 if(location.pathname.split('/').at(-2) === 'shipping') {
-
+  main.addEventListener('click', function(event) {
+    
+  });
 }
 
 //Billing
 if(location.pathname.split('/').at(-2) === 'billing') {
+  main.addEventListener('click', function(event) {
 
+  });
 }
 
 //Payment
 if(location.pathname.split('/').at(-2) === 'payment') {
+  main.addEventListener('click', function(event) {
 
+  });
 }
 
 //Cart
 if(location.pathname.split('/').at(-2) === 'cart') {
+  main.addEventListener('click', function(event) {
 
+  });
 }
