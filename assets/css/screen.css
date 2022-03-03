@@ -118,6 +118,10 @@ form ol li input:focus-visible {
   outline: 0;
 }
 
+form ol li input:focus-visible::placeholder{
+  color: transparent;
+}
+
 .flex{
   display: flex;
 }
