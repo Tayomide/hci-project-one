@@ -204,11 +204,11 @@ function populate(){
 }
 
 function transform(){
-  document.querySelector(".hide:not(button)").className += " translate";
+  document.querySelector(".hide:not(button)").id += "translate";
 }
 
 function retransform(){
-  document.querySelector(".hide:not(button)").className = document.querySelector(".hide:not(button)").className.split(" ")[0];
+  document.querySelector(".hide:not(button)").id = "";
 }
 
 document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
