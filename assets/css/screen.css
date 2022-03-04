@@ -215,7 +215,7 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
     transition: 2s;
 
   }
-  .translate {
+  #translate {
     right: 0;
   }
   .nothide {
