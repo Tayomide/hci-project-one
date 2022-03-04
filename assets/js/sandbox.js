@@ -242,8 +242,8 @@ if(document.querySelector("main#home") !== null) {
 
 // Shipping
 if(location.pathname.split('/').at(-2) === 'shipping') {
-  main.addEventListener('click', function(event) {
-    if (event.target === document.querySelector("#shipping form button")) {
+  main.addEventListener('submit', function(event) {
+    if (event.target === document.querySelector("#shipping form")) {
       doForm(0);
       event.preventDefault();
     }
@@ -253,11 +253,6 @@ if(location.pathname.split('/').at(-2) === 'shipping') {
 // Billing
 if(location.pathname.split('/').at(-2) === 'billing') {
   main.addEventListener('click', function(event) {
-    if (event.target === document.querySelector("#billing form button[type='submit']")) {
-      doForm(1);
-      event.preventDefault();
-    }
-
     if (event.target === document.querySelector("#address-populate")) {
       document.forms[0].country.value = localStorage.getItem(information[0].Country);
       document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
@@ -269,12 +264,19 @@ if(location.pathname.split('/').at(-2) === 'billing') {
       document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
     }
   });
+
+  main.addEventListener('submit', function(event) {
+    if (event.target === document.querySelector("#billing form")) {
+      doForm(1);
+      event.preventDefault();
+    }
+  });
 }
 
 // Payment
 if(location.pathname.split('/').at(-2) === 'payment') {
-  main.addEventListener('click', function(event) {
-    if (event.target === document.querySelector("#payment form button")) {
+  main.addEventListener('submit', function(event) {
+    if (event.target === document.querySelector("#payment form")) {
       doForm(2);
       event.preventDefault();
     }
