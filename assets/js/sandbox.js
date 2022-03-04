@@ -171,7 +171,7 @@ function doForm(integer) {
 function populate(){
   // get current user location
   // shipping
-  if(location.pathname.split('/').at(-2) === "shipping") {
+  if(document.querySelector("main#shipping") !== null) {
     if(typeof sessionStorage.getItem(information[0].Country) !== 'undefined'){
       document.forms[0].country.value = sessionStorage.getItem(information[0].Country);
       document.forms[0].fullname.value = sessionStorage.getItem(information[0].Fullname);
@@ -182,7 +182,7 @@ function populate(){
       document.forms[0].state.value = sessionStorage.getItem(information[0].State);
       document.forms[0].zip.value = sessionStorage.getItem(information[0].Zip);
     }
-  } else if(location.pathname.split('/').at(-2) === "billing"){// billing
+  } else if(document.querySelector("main#billing") !== null){// billing
     if(typeof sessionStorage.getItem(information[1].Country) !== 'undefined'){
       document.forms[0].country.value = sessionStorage.getItem(information[1].Country);
       document.forms[0].fullname.value = sessionStorage.getItem(information[1].Fullname);
@@ -193,7 +193,7 @@ function populate(){
       document.forms[0].state.value = sessionStorage.getItem(information[1].State);
       document.forms[0].zip.value = sessionStorage.getItem(information[1].Zip);
     }
-  } else if(location.pathname.split("/").at(-2) === "payment"){ // payment
+  } else if(document.querySelector("main#payment") !== null){ // payment
     if(typeof sessionStorage.getItem(information[2].Name) !== 'undefined') {
       document.forms[0].cardname.value = sessionStorage.getItem(information[2].Name);
       document.forms[0].cardnumber.value = sessionStorage.getItem(information[2].Number);
@@ -241,7 +241,7 @@ if(document.querySelector("main#home") !== null) {
 }
 
 // Shipping
-if(location.pathname.split('/').at(-2) === 'shipping') {
+if(document.querySelector("main#shipping") !== null) {
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#shipping form button")) {
       doForm(0);
@@ -251,7 +251,7 @@ if(location.pathname.split('/').at(-2) === 'shipping') {
 }
 
 // Billing
-if(location.pathname.split('/').at(-2) === 'billing') {
+if(document.querySelector("main#billing") !== null) {
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#billing form button[type='submit']")) {
       doForm(1);
@@ -272,7 +272,7 @@ if(location.pathname.split('/').at(-2) === 'billing') {
 }
 
 // Payment
-if(location.pathname.split('/').at(-2) === 'payment') {
+if(document.querySelector("main#payment") !== null) {
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#payment form button")) {
       doForm(2);
@@ -282,7 +282,7 @@ if(location.pathname.split('/').at(-2) === 'payment') {
 }
 
 // Cart
-if(location.pathname.split('/').at(-2) === 'cart') {
+if(document.querySelector("main#cart") !== null) {
   makeP(information[0], "shipping-address");
   makeP(information[1], "billing-address");
   makeP(information[2], "payment-info");
