@@ -107,10 +107,10 @@ function makeOL(object, id, selected){
 
 function cartFunction(item) {
   var cart_selc;
-  if (!localStorage.getItem("cart_selector").includes(item)){
-    cart_selc = localStorage.getItem("cart_selector").split(",");
+  if (!sessionStorage.getItem("cart_selector").includes(item)){
+    cart_selc = sessionStorage.getItem("cart_selector").split(",");
     cart_selc.push(item);
-    localStorage.setItem("cart_selector", cart_selc);
+    sessionStorage.setItem("cart_selector", cart_selc);
   }
 }
 
@@ -125,7 +125,7 @@ function makeP(object, id){
   paragraphItems = document.getElementById(id).getElementsByTagName('p');
 
   for ( i = 0; i < Object.keys(object).length; i++ ) {
-    paragraphItems[i].innerHTML = localStorage.getItem(Object.values(object)[i]);
+    paragraphItems[i].innerHTML = sessionStorage.getItem(Object.values(object)[i]);
   }
 }
 
@@ -133,36 +133,36 @@ function makeP(object, id){
 function doForm(integer) {
   if(document.forms[0].checkValidity()){
     if (parseInt(integer) === 1 || parseInt(integer) === 0){
-      // Use local storage to store input data
-      localStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
-      localStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
-      localStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
-      localStorage.setItem(information[parseInt(integer)].Address1, document.forms[0].address[0].value);
-      localStorage.setItem(information[parseInt(integer)].Address2, document.forms[0].address[1].value);
-      localStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
-      localStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
-      localStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
+      // Use session storage to store input data
+      sessionStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
+      sessionStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
+      sessionStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
+      sessionStorage.setItem(information[parseInt(integer)].Address1, document.forms[0].address[0].value);
+      sessionStorage.setItem(information[parseInt(integer)].Address2, document.forms[0].address[1].value);
+      sessionStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
+      sessionStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
+      sessionStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
       if(parseInt(integer) === 1){
         location.assign("../payment");
       } else if(!document.querySelector('#bill').checked){
         location.assign("../billing");
       }
     } else{
-      localStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
-      localStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
-      localStorage.setItem(information[parseInt(integer)].Expiry, document.forms[0].expirationdate.value);
-      localStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
+      sessionStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
+      sessionStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
+      sessionStorage.setItem(information[parseInt(integer)].Expiry, document.forms[0].expirationdate.value);
+      sessionStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
       location.assign("../cart");
     }
     if(parseInt(integer) === 0 && document.querySelector('#bill').checked){
-      localStorage.setItem(information[1].Country, document.forms[0].country.value);
-      localStorage.setItem(information[1].Fullname, document.forms[0].fullname.value);
-      localStorage.setItem(information[1].Phonenumber, document.forms[0].telephone.value);
-      localStorage.setItem(information[1].Address1, document.forms[0].address[0].value);
-      localStorage.setItem(information[1].Address2, document.forms[0].address[1].value);
-      localStorage.setItem(information[1].City, document.forms[0].city.value);
-      localStorage.setItem(information[1].State, document.forms[0].state.value);
-      localStorage.setItem(information[1].Zip, document.forms[0].zip.value);
+      sessionStorage.setItem(information[1].Country, document.forms[0].country.value);
+      sessionStorage.setItem(information[1].Fullname, document.forms[0].fullname.value);
+      sessionStorage.setItem(information[1].Phonenumber, document.forms[0].telephone.value);
+      sessionStorage.setItem(information[1].Address1, document.forms[0].address[0].value);
+      sessionStorage.setItem(information[1].Address2, document.forms[0].address[1].value);
+      sessionStorage.setItem(information[1].City, document.forms[0].city.value);
+      sessionStorage.setItem(information[1].State, document.forms[0].state.value);
+      sessionStorage.setItem(information[1].Zip, document.forms[0].zip.value);
       location.assign("../payment");
     }
   }
@@ -172,33 +172,33 @@ function populate(){
   // get current user location
   // shipping
   if(location.pathname.split('/').at(-2) === "shipping") {
-    if(typeof localStorage.getItem(information[0].Country) !== 'undefined'){
-      document.forms[0].country.value = localStorage.getItem(information[0].Country);
-      document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
-      document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
-      document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
-      document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
-      document.forms[0].city.value = localStorage.getItem(information[0].City);
-      document.forms[0].state.value = localStorage.getItem(information[0].State);
-      document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
+    if(typeof sessionStorage.getItem(information[0].Country) !== 'undefined'){
+      document.forms[0].country.value = sessionStorage.getItem(information[0].Country);
+      document.forms[0].fullname.value = sessionStorage.getItem(information[0].Fullname);
+      document.forms[0].telephone.value = sessionStorage.getItem(information[0].Phonenumber);
+      document.forms[0].address[0].value = sessionStorage.getItem(information[0].Address1);
+      document.forms[0].address[1].value = sessionStorage.getItem(information[0].Address2);
+      document.forms[0].city.value = sessionStorage.getItem(information[0].City);
+      document.forms[0].state.value = sessionStorage.getItem(information[0].State);
+      document.forms[0].zip.value = sessionStorage.getItem(information[0].Zip);
     }
   } else if(location.pathname.split('/').at(-2) === "billing"){// billing
-    if(typeof localStorage.getItem(information[1].Country) !== 'undefined'){
-      document.forms[0].country.value = localStorage.getItem(information[1].Country);
-      document.forms[0].fullname.value = localStorage.getItem(information[1].Fullname);
-      document.forms[0].telephone.value = localStorage.getItem(information[1].Phonenumber);
-      document.forms[0].address[0].value = localStorage.getItem(information[1].Address1);
-      document.forms[0].address[1].value = localStorage.getItem(information[1].Address2);
-      document.forms[0].city.value = localStorage.getItem(information[1].City);
-      document.forms[0].state.value = localStorage.getItem(information[1].State);
-      document.forms[0].zip.value = localStorage.getItem(information[1].Zip);
+    if(typeof sessionStorage.getItem(information[1].Country) !== 'undefined'){
+      document.forms[0].country.value = sessionStorage.getItem(information[1].Country);
+      document.forms[0].fullname.value = sessionStorage.getItem(information[1].Fullname);
+      document.forms[0].telephone.value = sessionStorage.getItem(information[1].Phonenumber);
+      document.forms[0].address[0].value = sessionStorage.getItem(information[1].Address1);
+      document.forms[0].address[1].value = sessionStorage.getItem(information[1].Address2);
+      document.forms[0].city.value = sessionStorage.getItem(information[1].City);
+      document.forms[0].state.value = sessionStorage.getItem(information[1].State);
+      document.forms[0].zip.value = sessionStorage.getItem(information[1].Zip);
     }
   } else if(location.pathname.split("/").at(-2) === "payment"){ // payment
-    if(typeof localStorage.getItem(information[2].Name) !== 'undefined') {
-      document.forms[0].cardname.value = localStorage.getItem(information[2].Name);
-      document.forms[0].cardnumber.value = localStorage.getItem(information[2].Number);
-      document.forms[0].expirationdate.value = localStorage.getItem(information[2].Expiry);
-      document.forms[0].cvv.value = localStorage.getItem(information[2].Cvv);
+    if(typeof sessionStorage.getItem(information[2].Name) !== 'undefined') {
+      document.forms[0].cardname.value = sessionStorage.getItem(information[2].Name);
+      document.forms[0].cardnumber.value = sessionStorage.getItem(information[2].Number);
+      document.forms[0].expirationdate.value = sessionStorage.getItem(information[2].Expiry);
+      document.forms[0].cvv.value = sessionStorage.getItem(information[2].Cvv);
     }
   }
 }
@@ -220,8 +220,8 @@ document.querySelectorAll("button.hide")[1].addEventListener("click", function()
 
 populate();
 retransform();
-if(localStorage.getItem("cart_selector") === null){
-  localStorage.setItem("cart_selector", []);
+if(sessionStorage.getItem("cart_selector") === null){
+  sessionStorage.setItem("cart_selector", []);
 }
 
 // I have been losing track of my javascript functions. I will slowly reorder the already made functions
@@ -259,14 +259,14 @@ if(location.pathname.split('/').at(-2) === 'billing') {
     }
 
     if (event.target === document.querySelector("#address-populate")) {
-      document.forms[0].country.value = localStorage.getItem(information[0].Country);
-      document.forms[0].fullname.value = localStorage.getItem(information[0].Fullname);
-      document.forms[0].telephone.value = localStorage.getItem(information[0].Phonenumber);
-      document.forms[0].address[0].value = localStorage.getItem(information[0].Address1);
-      document.forms[0].address[1].value = localStorage.getItem(information[0].Address2);
-      document.forms[0].city.value = localStorage.getItem(information[0].City);
-      document.forms[0].state.value = localStorage.getItem(information[0].State);
-      document.forms[0].zip.value = localStorage.getItem(information[0].Zip);
+      document.forms[0].country.value = sessionStorage.getItem(information[0].Country);
+      document.forms[0].fullname.value = sessionStorage.getItem(information[0].Fullname);
+      document.forms[0].telephone.value = sessionStorage.getItem(information[0].Phonenumber);
+      document.forms[0].address[0].value = sessionStorage.getItem(information[0].Address1);
+      document.forms[0].address[1].value = sessionStorage.getItem(information[0].Address2);
+      document.forms[0].city.value = sessionStorage.getItem(information[0].City);
+      document.forms[0].state.value = sessionStorage.getItem(information[0].State);
+      document.forms[0].zip.value = sessionStorage.getItem(information[0].Zip);
     }
   });
 }
