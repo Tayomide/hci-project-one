@@ -34,7 +34,7 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: 'https://nightwatchjs.org',
+      launch_url: 'https://tayomide.github.io/hci-project-one',
 
       screenshots: {
         enabled: false,
