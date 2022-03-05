@@ -122,7 +122,7 @@ form ol li input:focus-visible {
   outline: 0;
 }
 
-form ol li input:focus-visible::placeholder {
+input:focus::placeholder {
   color: transparent;
 }
 
