@@ -212,7 +212,7 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
     top: 0;
     z-index: 100;
     right: -100vw;
-    transition: 2s;
+    transition: 0.4s;
 
   }
   #translate {
