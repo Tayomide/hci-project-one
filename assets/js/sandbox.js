@@ -62,11 +62,6 @@ var formInformation = JSON.stringify(
   }
 );
 
-if( typeof sessionStorage.getItem(formInformation) === 'undefined'){
-  sessionStorage.setItem("formData", formInformation);
-}
-
-
 var products = [
   {name:"Wristwatch",
     description:"Mobile wrist watch that tells time. Duh",
@@ -105,6 +100,10 @@ var products = [
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
 var counte;
+
+if( typeof sessionStorage.getItem(formInformation) === 'undefined'){
+  sessionStorage.setItem("formData", formInformation);
+}
 
 function makeOL(object, id, selected){
   var i;
