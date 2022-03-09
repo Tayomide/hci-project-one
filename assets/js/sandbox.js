@@ -349,7 +349,7 @@ if(document.querySelector("main#payment") !== null) {
 
 // Cart
 if(document.querySelector("main#cart") !== null) {
-  makeP(information[0], "shipping-address");
-  makeP(information[1], "billing-address");
-  makeP(information[2], "payment-info");
+  makeP("shipping-address", "shipping");
+  makeP("billing-address", "billing");
+  makeP("payment-info", "payment");
 }
