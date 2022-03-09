@@ -300,7 +300,6 @@ if(document.querySelector("main#home") !== null) {
 if(document.querySelector("main#shipping") !== null) {
   main.addEventListener('change', function(event) {
     storeUserInput(event.target, document.querySelector("main").id);
-    console.log(event.target);
   });
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#shipping form button")) {
