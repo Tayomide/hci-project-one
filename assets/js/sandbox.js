@@ -40,7 +40,7 @@ var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
 var counte;
 
-if( typeof sessionStorage.getItem(formData) === 'undefined'){
+if( sessionStorage.getItem("formData") === null){
   sessionStorage.setItem("formData",
     JSON.stringify(
       {
@@ -142,92 +142,120 @@ function cartFunction(item) {
   }
 }
 
-function makeP(object, id){
+function makeP(id, dataId){
   var i, paragraphItems;
+  var formData = JSON.parse(sessionStorage.getItem("formData"));
 
   // Add appropriate number of list
-  for ( i = 0; i < Object.keys(object).length; i++) {
+  for ( i = 0; i < Object.keys(formData.formSubmission[dataId]).length; i++) {
     document.getElementById(id).appendChild(document.createElement('p'));
   }
 
   paragraphItems = document.getElementById(id).getElementsByTagName('p');
 
-  for ( i = 0; i < Object.keys(object).length; i++ ) {
-    paragraphItems[i].innerHTML = sessionStorage.getItem(Object.values(object)[i]);
+  for ( i = 0; i < Object.keys(formData.formSubmission[dataId]).length; i++ ) {
+    paragraphItems[i].innerHTML = Object.values(formData.formSubmission[dataId])[i];
   }
 }
 
 // Getting form fields data
-function doForm(integer) {
-  if(document.forms[0].checkValidity()){
-    if (parseInt(integer) === 1 || parseInt(integer) === 0){
-      // Use session storage to store input data
-      sessionStorage.setItem(information[parseInt(integer)].Country, document.forms[0].country.value);
-      sessionStorage.setItem(information[parseInt(integer)].Fullname, document.forms[0].fullname.value);
-      sessionStorage.setItem(information[parseInt(integer)].Phonenumber, document.forms[0].telephone.value);
-      sessionStorage.setItem(information[parseInt(integer)].Address1, document.forms[0].address[0].value);
-      sessionStorage.setItem(information[parseInt(integer)].Address2, document.forms[0].address[1].value);
-      sessionStorage.setItem(information[parseInt(integer)].City, document.forms[0].city.value);
-      sessionStorage.setItem(information[parseInt(integer)].State, document.forms[0].state.value);
-      sessionStorage.setItem(information[parseInt(integer)].Zip, document.forms[0].zip.value);
-      if(parseInt(integer) === 1){
+function doForm() {
+  var formData;
+  if(document.forms[0].checkValidity()) {
+    formData = JSON.parse(sessionStorage.getItem("formData"));
+    if(document.querySelector("main").id === "shipping") {
+      if(document.querySelector("#bill").checked) {
+        formData.formSubmission.shipping = {
+          country : document.forms[0].country.value,
+          fullName : document.forms[0].fullname.value,
+          phoneNumber : document.forms[0].telephone.value,
+          address1 : document.forms[0].address[0].value,
+          address2 : document.forms[0].address[1].value,
+          city : document.forms[0].city.value,
+          state : document.forms[0].state.value,
+          zip : document.forms[0].zip.value
+        };
+        formData.formInput.shipping = formData.formSubmission.shipping;
+        formData.formSubmission.billing = formData.formSubmission.shipping;
+        formData.formInput.billing = formData.formSubmission.shipping;
         location.assign("../payment");
-      } else if(!document.querySelector('#bill').checked){
+      } else {
+        formData.formSubmission.shipping = {
+          country : document.forms[0].country.value,
+          fullName : document.forms[0].fullname.value,
+          phoneNumber : document.forms[0].telephone.value,
+          address1 : document.forms[0].address[0].value,
+          address2 : document.forms[0].address[1].value,
+          city : document.forms[0].city.value,
+          state : document.forms[0].state.value,
+          zip : document.forms[0].zip.value
+        };
+        formData.formInput.shipping = formData.formSubmission.shipping;
         location.assign("../billing");
       }
-    } else{
-      sessionStorage.setItem(information[parseInt(integer)].Name, document.forms[0].cardname.value);
-      sessionStorage.setItem(information[parseInt(integer)].Number, document.forms[0].cardnumber.value);
-      sessionStorage.setItem(information[parseInt(integer)].Expiry, document.forms[0].expirationdate.value);
-      sessionStorage.setItem(information[parseInt(integer)].Cvv, document.forms[0].cvv.value);
+    } else if (document.querySelector("main").id === "billing") {
+      formData.formSubmission.billing = {
+        country : document.forms[0].country.value,
+        fullName : document.forms[0].fullname.value,
+        phoneNumber : document.forms[0].telephone.value,
+        address1 : document.forms[0].address[0].value,
+        address2 : document.forms[0].address[1].value,
+        city : document.forms[0].city.value,
+        state : document.forms[0].state.value,
+        zip : document.forms[0].zip.value
+      };
+      formData.formInput.billing = formData.formSubmission.billing;
+      location.assign("../payment");
+    } else {
+      formData.formSubmission.payment = {
+        name : document.forms[0].cardname.value,
+        number : document.forms[0].cardnumber.value,
+        expiry : document.forms[0].expirationdate.value,
+        cvv : document.forms[0].cvv.value
+      };
+      formData.formInput.payment = formData.formSubmission.payment;
       location.assign("../cart");
     }
-    if(parseInt(integer) === 0 && document.querySelector('#bill').checked){
-      sessionStorage.setItem(information[1].Country, document.forms[0].country.value);
-      sessionStorage.setItem(information[1].Fullname, document.forms[0].fullname.value);
-      sessionStorage.setItem(information[1].Phonenumber, document.forms[0].telephone.value);
-      sessionStorage.setItem(information[1].Address1, document.forms[0].address[0].value);
-      sessionStorage.setItem(information[1].Address2, document.forms[0].address[1].value);
-      sessionStorage.setItem(information[1].City, document.forms[0].city.value);
-      sessionStorage.setItem(information[1].State, document.forms[0].state.value);
-      sessionStorage.setItem(information[1].Zip, document.forms[0].zip.value);
-      location.assign("../payment");
-    }
+    sessionStorage.setItem("formData", JSON.stringify(formData));
   }
 }
 
+function storeUserInput(element, id) {
+  var formData;
+  if (element.tagName !== "INPUT") {
+    return;
+  }
+  formData = JSON.parse(sessionStorage.getItem("formData"));
+  formData.formInput[id][element.id] = element.value;
+  sessionStorage.setItem("formData", JSON.stringify(formData));
+}
+
 function populate(){
-  // get current user location
-  // shipping
-  if(document.querySelector("main#shipping") !== null) {
-    if(typeof sessionStorage.getItem(information[0].Country) !== 'undefined'){
-      document.forms[0].country.value = sessionStorage.getItem(information[0].Country);
-      document.forms[0].fullname.value = sessionStorage.getItem(information[0].Fullname);
-      document.forms[0].telephone.value = sessionStorage.getItem(information[0].Phonenumber);
-      document.forms[0].address[0].value = sessionStorage.getItem(information[0].Address1);
-      document.forms[0].address[1].value = sessionStorage.getItem(information[0].Address2);
-      document.forms[0].city.value = sessionStorage.getItem(information[0].City);
-      document.forms[0].state.value = sessionStorage.getItem(information[0].State);
-      document.forms[0].zip.value = sessionStorage.getItem(information[0].Zip);
-    }
-  } else if(document.querySelector("main#billing") !== null){// billing
-    if(typeof sessionStorage.getItem(information[1].Country) !== 'undefined'){
-      document.forms[0].country.value = sessionStorage.getItem(information[1].Country);
-      document.forms[0].fullname.value = sessionStorage.getItem(information[1].Fullname);
-      document.forms[0].telephone.value = sessionStorage.getItem(information[1].Phonenumber);
-      document.forms[0].address[0].value = sessionStorage.getItem(information[1].Address1);
-      document.forms[0].address[1].value = sessionStorage.getItem(information[1].Address2);
-      document.forms[0].city.value = sessionStorage.getItem(information[1].City);
-      document.forms[0].state.value = sessionStorage.getItem(information[1].State);
-      document.forms[0].zip.value = sessionStorage.getItem(information[1].Zip);
-    }
-  } else if(document.querySelector("main#payment") !== null){ // payment
-    if(typeof sessionStorage.getItem(information[2].Name) !== 'undefined') {
-      document.forms[0].cardname.value = sessionStorage.getItem(information[2].Name);
-      document.forms[0].cardnumber.value = sessionStorage.getItem(information[2].Number);
-      document.forms[0].expirationdate.value = sessionStorage.getItem(information[2].Expiry);
-      document.forms[0].cvv.value = sessionStorage.getItem(information[2].Cvv);
-    }
+  var formData = JSON.parse(sessionStorage.getItem("formData"));
+  var mainId = document.querySelector("main").id;
+  if(mainId === "shipping") {
+    document.forms[0].country.value = formData.formInput[mainId].country;
+    document.forms[0].fullname.value = formData.formInput[mainId].fullName;
+    document.forms[0].telephone.value = formData.formInput[mainId].phoneNumber;
+    document.forms[0].address[0].value = formData.formInput[mainId].address1;
+    document.forms[0].address[1].value = formData.formInput[mainId].address2;
+    document.forms[0].city.value = formData.formInput[mainId].city;
+    document.forms[0].state.value = formData.formInput[mainId].state;
+    document.forms[0].zip.value = formData.formInput[mainId].zip;
+  } else if(mainId === "billing"){// billing
+    document.forms[0].country.value = formData.formInput[mainId].country;
+    document.forms[0].fullname.value = formData.formInput[mainId].fullName;
+    document.forms[0].telephone.value = formData.formInput[mainId].phoneNumber;
+    document.forms[0].address[0].value = formData.formInput[mainId].address1;
+    document.forms[0].address[1].value = formData.formInput[mainId].address2;
+    document.forms[0].city.value = formData.formInput[mainId].city;
+    document.forms[0].state.value = formData.formInput[mainId].state;
+    document.forms[0].zip.value = formData.formInput[mainId].zip;
+  } else if(mainId === "payment"){ // payment
+    document.forms[0].cardname.value = formData.formInput[mainId].name;
+    document.forms[0].cardnumber.value = formData.formInput[mainId].number;
+    document.forms[0].expirationdate.value = formData.formInput[mainId].expiry;
+    document.forms[0].cvv.value = formData.formInput[mainId].cvv;
   }
 }
 
