@@ -51,8 +51,8 @@ if( typeof sessionStorage.getItem(formData) === 'undefined'){
             phoneNumber : "",
             address1 : "",
             address2 : "",
-            city : "",
             state : "",
+            city : "",
             zip : ""
           },
           billing : {
@@ -61,8 +61,8 @@ if( typeof sessionStorage.getItem(formData) === 'undefined'){
             phoneNumber : "",
             address1 : "",
             address2 : "",
-            city : "",
             state : "",
+            city : "",
             zip : ""
           },
           payment : {
@@ -79,8 +79,8 @@ if( typeof sessionStorage.getItem(formData) === 'undefined'){
             phoneNumber : "",
             address1 : "",
             address2 : "",
-            city : "",
             state : "",
+            city : "",
             zip : ""
           },
           billing : {
@@ -89,8 +89,8 @@ if( typeof sessionStorage.getItem(formData) === 'undefined'){
             phoneNumber : "",
             address1 : "",
             address2 : "",
-            city : "",
             state : "",
+            city : "",
             zip : ""
           },
           payment : {
