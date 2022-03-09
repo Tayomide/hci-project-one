@@ -298,6 +298,10 @@ if(document.querySelector("main#home") !== null) {
 
 // Shipping
 if(document.querySelector("main#shipping") !== null) {
+  main.addEventListener('change', function(event) {
+    storeUserInput(event.target, document.querySelector("main").id);
+    console.log(event.target);
+  });
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#shipping form button")) {
       doForm(0);
@@ -309,21 +313,24 @@ if(document.querySelector("main#shipping") !== null) {
 // Billing
 if(document.querySelector("main#billing") !== null) {
   main.addEventListener('click', function(event) {
+    var formData = JSON.parse(sessionStorage.getItem("formData"));
     if (event.target === document.querySelector("#billing form button[type='submit']")) {
       doForm(1);
       event.preventDefault();
     }
-
-    if (event.target === document.querySelector("#address-populate")) {
-      document.forms[0].country.value = sessionStorage.getItem(information[0].Country);
-      document.forms[0].fullname.value = sessionStorage.getItem(information[0].Fullname);
-      document.forms[0].telephone.value = sessionStorage.getItem(information[0].Phonenumber);
-      document.forms[0].address[0].value = sessionStorage.getItem(information[0].Address1);
-      document.forms[0].address[1].value = sessionStorage.getItem(information[0].Address2);
-      document.forms[0].city.value = sessionStorage.getItem(information[0].City);
-      document.forms[0].state.value = sessionStorage.getItem(information[0].State);
-      document.forms[0].zip.value = sessionStorage.getItem(information[0].Zip);
+    if (event.target.id === "address-populate") {
+      document.forms[0].country.value = formData.formInput.shipping.country;
+      document.forms[0].fullname.value = formData.formInput.shipping.fullName;
+      document.forms[0].telephone.value = formData.formInput.shipping.phoneNumber;
+      document.forms[0].address[0].value = formData.formInput.shipping.address1;
+      document.forms[0].address[1].value = formData.formInput.shipping.address2;
+      document.forms[0].city.value = formData.formInput.shipping.city;
+      document.forms[0].state.value = formData.formInput.shipping.state;
+      document.forms[0].zip.value = formData.formInput.shipping.zip;
     }
+  });
+  main.addEventListener('change', function(event) {
+    storeUserInput(event.target, document.querySelector("main").id);
   });
 }
 
@@ -334,6 +341,9 @@ if(document.querySelector("main#payment") !== null) {
       doForm(2);
       event.preventDefault();
     }
+  });
+  main.addEventListener('change', function(event) {
+    storeUserInput(event.target, document.querySelector("main").id);
   });
 }
 
