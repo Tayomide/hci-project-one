@@ -1,7 +1,6 @@
 "use strict";
 
 // Add default styles to show which input is not valid
-
 var formInformation = JSON.stringify(
   {
     formSubmission : {
@@ -62,6 +61,11 @@ var formInformation = JSON.stringify(
     }
   }
 );
+
+if( typeof sessionStorage.getItem(formInformation) === 'undefined'){
+  sessionStorage.setItem("formData", formInformation);
+}
+
 
 var products = [
   {name:"Wristwatch",
