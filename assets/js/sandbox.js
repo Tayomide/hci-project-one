@@ -1,67 +1,6 @@
 "use strict";
 
 // Add default styles to show which input is not valid
-var formInformation = JSON.stringify(
-  {
-    formSubmission : {
-      shipping : {
-        country : "",
-        fullName: "",
-        phoneNumber : "",
-        address1 : "",
-        address2 : "",
-        city : "",
-        state : "",
-        zip : ""
-      },
-      billing : {
-        country : "",
-        fullName: "",
-        phoneNumber : "",
-        address1 : "",
-        address2 : "",
-        city : "",
-        state : "",
-        zip : ""
-      },
-      payment : {
-        name : "",
-        number : "",
-        expiry : "",
-        cvv : ""
-      }
-    },
-    formInput : {
-      shipping : {
-        country : "",
-        fullName: "",
-        phoneNumber : "",
-        address1 : "",
-        address2 : "",
-        city : "",
-        state : "",
-        zip : ""
-      },
-      billing : {
-        country : "",
-        fullName: "",
-        phoneNumber : "",
-        address1 : "",
-        address2 : "",
-        city : "",
-        state : "",
-        zip : ""
-      },
-      payment : {
-        name : "",
-        number : "",
-        expiry : "",
-        cvv : ""
-      }
-    }
-  }
-);
-
 var products = [
   {name:"Wristwatch",
     description:"Mobile wrist watch that tells time. Duh",
@@ -101,8 +40,69 @@ var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
 var counte;
 
-if( typeof sessionStorage.getItem(formInformation) === 'undefined'){
-  sessionStorage.setItem("formData", formInformation);
+if( typeof sessionStorage.getItem(formData) === 'undefined'){
+  sessionStorage.setItem("formData",
+    JSON.stringify(
+      {
+        formSubmission : {
+          shipping : {
+            country : "",
+            fullName: "",
+            phoneNumber : "",
+            address1 : "",
+            address2 : "",
+            city : "",
+            state : "",
+            zip : ""
+          },
+          billing : {
+            country : "",
+            fullName: "",
+            phoneNumber : "",
+            address1 : "",
+            address2 : "",
+            city : "",
+            state : "",
+            zip : ""
+          },
+          payment : {
+            name : "",
+            number : "",
+            expiry : "",
+            cvv : ""
+          }
+        },
+        formInput : {
+          shipping : {
+            country : "",
+            fullName: "",
+            phoneNumber : "",
+            address1 : "",
+            address2 : "",
+            city : "",
+            state : "",
+            zip : ""
+          },
+          billing : {
+            country : "",
+            fullName: "",
+            phoneNumber : "",
+            address1 : "",
+            address2 : "",
+            city : "",
+            state : "",
+            zip : ""
+          },
+          payment : {
+            name : "",
+            number : "",
+            expiry : "",
+            cvv : ""
+          }
+        }
+      }
+    )
+  );
 }
 
 function makeOL(object, id, selected){
