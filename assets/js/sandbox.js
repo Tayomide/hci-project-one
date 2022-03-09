@@ -2,41 +2,66 @@
 
 // Add default styles to show which input is not valid
 
-var information =[
+var formInformation = JSON.stringify(
   {
-    Country:"shippingCountry",
-    Fullname:"shippingFullName",
-    Phonenumber:"shippingPhoneNumber",
-    Address1:"shippingAddress1",
-    Address2:"shippingAddress2",
-    City:"shippingCity",
-    State:"shippingState",
-    Zip:"shippingZip"
-  },
-  {
-    Country:"billingCountry",
-    Fullname:"billingFullName",
-    Phonenumber:"billingPhoneNumber",
-    Address1:"billingAddress1",
-    Address2:"billingAddress2",
-    City:"billingCity",
-    State:"billingState",
-    Zip:"billingZip"
-  },
-  {
-    Name:"cardName",
-    Number:"cardNumber",
-    Expiry:"cardExpiry",
-    Cvv:"cardCvv"
-  },
-  {
-    Subtotal:"priceSubtotal",
-    Tax:"priceTax",
-    Shipping:"priceShipping",
-    Coupon:"priceCoupon",
-    Total:"priceTotal"
+    formSubmission : {
+      shipping : {
+        country : "",
+        fullName: "",
+        phoneNumber : "",
+        address1 : "",
+        address2 : "",
+        city : "",
+        state : "",
+        zip : ""
+      },
+      billing : {
+        country : "",
+        fullName: "",
+        phoneNumber : "",
+        address1 : "",
+        address2 : "",
+        city : "",
+        state : "",
+        zip : ""
+      },
+      payment : {
+        name : "",
+        number : "",
+        expiry : "",
+        cvv : ""
+      }
+    },
+    formInput : {
+      shipping : {
+        country : "",
+        fullName: "",
+        phoneNumber : "",
+        address1 : "",
+        address2 : "",
+        city : "",
+        state : "",
+        zip : ""
+      },
+      billing : {
+        country : "",
+        fullName: "",
+        phoneNumber : "",
+        address1 : "",
+        address2 : "",
+        city : "",
+        state : "",
+        zip : ""
+      },
+      payment : {
+        name : "",
+        number : "",
+        expiry : "",
+        cvv : ""
+      }
+    }
   }
-];
+);
 
 var products = [
   {name:"Wristwatch",
