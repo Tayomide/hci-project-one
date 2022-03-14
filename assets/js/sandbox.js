@@ -259,23 +259,27 @@ function populate(){
   }
 }
 
-function transform(){
-  document.querySelector(".hide:not(button)").id += "translate";
+// toggle nav pop up
+function toggletransform(){
+  document.querySelector(".hide:not(button)").classList.toggle("translate");
 }
 
-function retransform(){
-  document.querySelector(".hide:not(button)").id = "";
+// reset nav pop up
+function transform(){
+  if(document.querySelector(".hide:not(button)").classList.contains("translate")){
+    toggletransform();
+  }
 }
 
 document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
-  transform();
+  toggletransform();
 });
 document.querySelectorAll("button.hide")[1].addEventListener("click", function(){
-  retransform();
+  toggletransform();
 });
 
 populate();
-retransform();
+transform();
 if(sessionStorage.getItem("cart_selector") === null){
   sessionStorage.setItem("cart_selector", []);
 }
