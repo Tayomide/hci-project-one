@@ -94,7 +94,7 @@ form ol .half {
   grid-column: span 2;
 }
 
-form ol li {
+form ol li, fieldset {
   grid-column: 1/5;
   display: grid;
   grid-template-columns: repeat( 4, 1fr);
