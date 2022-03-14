@@ -44,7 +44,7 @@ header {
   display: grid;
   grid-template-columns: 5em auto 5em;
   height: 2.7777778em;/* 50/18 = 2.7777778em*/
-  padding: 0 1em;
+  padding: 0.5em 1em 0 1em;
 }
 
 .hide {
