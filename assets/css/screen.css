@@ -42,24 +42,23 @@ h4 {
 
 header {
   display: grid;
-  grid-template-columns: repeat( 12, 1fr);
+  grid-template-columns: 5em auto 5em;
   height: 2.7777778em;/* 50/18 = 2.7777778em*/
+  padding: 0 1em;
 }
 
 .hide {
   display: none;
 }
-header #first-nav {
-  display: grid;
-  grid-column: 1;
-  justify-items: center;
-  align-items: center;
+header #home-nav {
+  align-self: center;
 }
-header #second-nav {
-  grid-column: 2/10;
-  display: grid;
-  grid-template-columns: repeat( 12, 1fr);
-  justify-items: center;
+header #second-nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-between;
+  width: inherit;
+  height: 100%;
   align-items: center;
 }
 
@@ -70,10 +69,6 @@ header button, header nav a {
 header #second-nav a {
   grid-column: span 3;
   text-decoration: none;
-}
-
-header button {
-  grid-column: 11/12;
 }
 
 main {
@@ -231,6 +226,11 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
     display: flex;
     align-self: center;
     justify-content: space-evenly;
+  }
+  header button.hide{
+    grid-column-start: 3;
+    height: 100%;
+    padding: 1em;
   }
 }
 
