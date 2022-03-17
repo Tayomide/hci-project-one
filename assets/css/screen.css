@@ -248,6 +248,8 @@ form li:after{
   content:attr(data-before);
   grid-column-start: 1;
   grid-column-end: -1;
+  color: red;
+  font-size: 0.75em;
 }
 
 @media (min-width: 900px) {
