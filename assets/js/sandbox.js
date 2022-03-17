@@ -262,6 +262,7 @@ function populate(){
 // toggle nav pop up
 function toggletransform(){
   document.querySelector(".hide:not(button)").classList.toggle("translate");
+  document.querySelector("html").classList.toggle("overflow");
 }
 
 // reset nav pop up
