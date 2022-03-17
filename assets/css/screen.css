@@ -246,7 +246,8 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
 
 form li:after{
   content:attr(data-before);
-  grid-area: inherit;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
 @media (min-width: 900px) {
