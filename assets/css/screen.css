@@ -231,6 +231,12 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
     align-self: center;
     justify-content: space-evenly;
   }
+  .hide ul {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: space-between;
+  }
   header button.hide{
     grid-column-start: 3;
     height: 100%;
