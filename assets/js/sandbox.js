@@ -161,6 +161,9 @@ function makeP(id, dataId){
 // Getting form fields data
 function doForm() {
   var formData;
+  var errorlog;
+  var listNode;
+  var i;
   if(document.forms[0].checkValidity()) {
     formData = JSON.parse(sessionStorage.getItem("formData"));
     if(document.querySelector("main").id === "shipping") {
@@ -217,6 +220,14 @@ function doForm() {
       location.assign("../cart");
     }
     sessionStorage.setItem("formData", JSON.stringify(formData));
+  } else {
+    errorlog = document.querySelectorAll("form input");
+    listNode = document.querySelectorAll("form li:not(.notInput)");
+    for ( i = 0; i < errorlog.length; i++) {
+      if(!errorlog[i].checkValidity()){
+        listNode[i].setAttribute('data-before', errorlog[i].validationMessage);
+      }
+    }
   }
 }
 
