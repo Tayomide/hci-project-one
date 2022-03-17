@@ -244,6 +244,10 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
   }
 }
 
+form li:after{
+  content:attr(data-before);
+}
+
 @media (min-width: 900px) {
   main {
     display: grid;
