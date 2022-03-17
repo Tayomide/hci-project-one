@@ -125,6 +125,10 @@ input:focus::placeholder {
   display: flex;
 }
 
+.overflow {
+  overflow: hidden;
+}
+
 form ol li #bill {
   height: fit-content;
   margin-right: 0.2em;
