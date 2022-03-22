@@ -170,11 +170,19 @@ a.edit + p {
   padding-top: 0.5em;
 }
 
-a.edit + p + p + p + p + p + p , a.edit + p + p + p + p + p + p + p , a.edit + p + p + p + p + p + p + p + p {
+#shipping-address p:nth-last-child(1),
+#shipping-address p:nth-last-child(2),
+#shipping-address p:nth-last-child(3),
+#billing-address p:nth-last-child(1),
+#billing-address p:nth-last-child(2),
+#billing-address p:nth-last-child(3){
   display: inline;
 }
 
-a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after {
+#shipping-address p:nth-last-child(2):after,
+#shipping-address p:nth-last-child(3):after,
+#billing-address p:nth-last-child(2):after,
+#billing-address p:nth-last-child(3):after {
   content: ",";
   padding-right: 0.2em;
 }
