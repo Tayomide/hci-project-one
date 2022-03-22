@@ -77,6 +77,7 @@ main {
 
 form {
   padding: 0 1em;
+  grid-column-start: 2;
 }
 
 form ol {
@@ -264,7 +265,10 @@ form li:after{
 @media (min-width: 900px) {
   main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 900px 1fr;
+  }
+  #home{
+    display: block;
   }
   #cart #shopping-cart, #cart #order-summary {
     grid-column: span 8;
