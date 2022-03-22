@@ -365,7 +365,15 @@ if(document.querySelector("main#payment") !== null) {
 // Cart
 if(document.querySelector("main#cart") !== null) {
   formDataReset = JSON.parse(sessionStorage.getItem("formData"));
-  formDataReset.formInput = formDataReset.formSubmission;
+  if(formDataReset.formSubmission.shipping.country !== ""){
+    formDataReset.formInput.shipping = formDataReset.formSubmission.shipping;
+  }
+  if(formDataReset.formSubmission.billing.country !== ""){
+    formDataReset.formInput.billing = formDataReset.formSubmission.billing;
+  }
+  if(formDataReset.formSubmission.payment.name !== ""){
+    formDataReset.formInput.payment = formDataReset.formSubmission.payment;
+  }
   sessionStorage.setItem("formData", JSON.stringify(formDataReset));
   makeP("shipping-address", "shipping");
   makeP("billing-address", "billing");
