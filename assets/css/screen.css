@@ -234,7 +234,8 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
   .hide ul {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 50vh;
+    margin-bottom: 50vh;
     justify-content: space-between;
   }
   header button.hide{
