@@ -203,7 +203,7 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
 @media (max-width: 500px) {
   main > nav {
     flex-direction: column;
-    height: 100vh;
+    height: max-content;
     width: 100vw;
     background: #fff;
     justify-content: space-between;
@@ -234,7 +234,7 @@ a.edit + p + p + p + p + p + p::after, a.edit + p + p + p + p + p + p + p::after
   .hide ul {
     display: flex;
     flex-direction: column;
-    height: inherit;
+    min-height: 100vh;
     justify-content: space-between;
   }
   header button.hide{
