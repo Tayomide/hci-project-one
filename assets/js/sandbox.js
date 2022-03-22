@@ -38,7 +38,7 @@ var products = [
 // Default selector in the event every object in array is needed e.g home page
 var default_selector = [1, 2, 3, 4, 5, 6, 7, 8];
 var main = document.querySelector("main");
-var counte;
+var counte, formDataReset;
 
 if( sessionStorage.getItem("formData") === null){
   sessionStorage.setItem("formData",
@@ -364,6 +364,9 @@ if(document.querySelector("main#payment") !== null) {
 
 // Cart
 if(document.querySelector("main#cart") !== null) {
+  formDataReset = JSON.parse(sessionStorage.getItem("formData"));
+  formDataReset.formInput = formDataReset.formSubmission;
+  sessionStorage.setItem("formData", JSON.stringify(formDataReset));
   makeP("shipping-address", "shipping");
   makeP("billing-address", "billing");
   makeP("payment-info", "payment");
