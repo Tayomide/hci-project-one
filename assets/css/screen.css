@@ -192,7 +192,7 @@ a.edit + p {
   flex-direction: row;
 }
 
-/* #payment-info p:nth-of-type(1):before {
+#payment-info p:nth-of-type(1):before {
   content: "Card Name: ";
 }
 
@@ -206,7 +206,7 @@ a.edit + p {
 
 #payment-info p:nth-of-type(4):before {
   content: "CVV: ";
-} */
+}
 
 @media (max-width: 500px) {
   main > nav {
