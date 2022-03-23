@@ -331,6 +331,12 @@ if(document.querySelector("main#shipping") !== null) {
 
 // Billing
 if(document.querySelector("main#billing") !== null) {
+  if(sessionStorage.getItem("billingShippingCheck") === "true"){
+    document.querySelector("#billShipCheck").checked = true;
+    for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
+      document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+    }
+  }
   main.addEventListener('click', function(event) {
     var formData = JSON.parse(sessionStorage.getItem("formData"));
     if (event.target === document.querySelector("#billing form button[type='submit']")) {
