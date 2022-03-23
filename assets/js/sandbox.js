@@ -338,7 +338,7 @@ if(document.querySelector("main#billing") !== null) {
     }
   }
   main.addEventListener('click', function(event) {
-    var formData = JSON.parse(sessionStorage.getItem("formData"));
+    formDataBill = JSON.parse(sessionStorage.getItem("formData"));
     if (event.target === document.querySelector("#billing form button[type='submit']")) {
       doForm(1);
       event.preventDefault();
