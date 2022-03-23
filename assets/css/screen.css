@@ -93,7 +93,7 @@ form ol .half {
 form ol li, fieldset {
   grid-column: 1/5;
   display: grid;
-  grid-template-columns: repeat( 4, 1fr);
+  grid-template-columns: max-content 1fr 1fr 1fr;
   grid-row-gap: 0.3em;
   padding: 0.3em 0;
 }
@@ -132,6 +132,16 @@ input:focus::placeholder {
 
 li.hideinp {
   display: none;
+}
+
+#billShipCheck{
+  grid-column: 1;
+}
+
+#billing .notInput label[for="billShipCheck"]  {
+  grid-column-start: 2;
+  align-self: center;
+  padding-left: 0.2em;
 }
 
 form ol li #bill {
