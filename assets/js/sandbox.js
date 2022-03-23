@@ -225,7 +225,7 @@ function doForm() {
     }
     sessionStorage.setItem("formData", JSON.stringify(formData));
   } else {
-    errorlog = document.querySelectorAll("form input");
+    errorlog = document.querySelectorAll("form li:not(.notInput) input");
     listNode = document.querySelectorAll("form li:not(.notInput)");
     for ( i = 0; i < errorlog.length; i++) {
       if(!errorlog[i].checkValidity()){
