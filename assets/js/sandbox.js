@@ -343,19 +343,34 @@ if(document.querySelector("main#billing") !== null) {
       doForm(1);
       event.preventDefault();
     }
-    if (event.target.id === "address-populate") {
-      document.forms[0].country.value = formData.formInput.shipping.country;
-      document.forms[0].fullname.value = formData.formInput.shipping.fullName;
-      document.forms[0].telephone.value = formData.formInput.shipping.phoneNumber;
-      document.forms[0].address[0].value = formData.formInput.shipping.address1;
-      document.forms[0].address[1].value = formData.formInput.shipping.address2;
-      document.forms[0].city.value = formData.formInput.shipping.city;
-      document.forms[0].state.value = formData.formInput.shipping.state;
-      document.forms[0].zip.value = formData.formInput.shipping.zip;
-    }
   });
   main.addEventListener('change', function(event) {
     storeUserInput(event.target, document.querySelector("main").id);
+    formDataBill = JSON.parse(sessionStorage.getItem("formData"));
+    if(event.target.id === "billShipCheck"){
+      if(event.target.checked && JSON.stringify(formDataBill.formSubmission.shipping) !== JSON.stringify(formDataBill.formSubmission.billing)){
+        document.forms[0].country.value = formDataBill.formInput.shipping.country;
+        document.forms[0].fullname.value = formDataBill.formInput.shipping.fullName;
+        document.forms[0].telephone.value = formDataBill.formInput.shipping.phoneNumber;
+        document.forms[0].address[0].value = formDataBill.formInput.shipping.address1;
+        document.forms[0].address[1].value = formDataBill.formInput.shipping.address2;
+        document.forms[0].city.value = formDataBill.formInput.shipping.city;
+        document.forms[0].state.value = formDataBill.formInput.shipping.state;
+        document.forms[0].zip.value = formDataBill.formInput.shipping.zip;
+        sessionStorage.setItem("billingShippingCheck", "true");
+        doForm(1);
+      } else if(event.target.checked){
+        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
+          document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+        }
+        sessionStorage.setItem("billingShippingCheck", "true");
+      } else{
+        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
+          document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+        }
+        sessionStorage.setItem("billingShippingCheck", "false");
+      }
+    }
   });
 }
 
