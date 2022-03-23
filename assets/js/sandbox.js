@@ -44,7 +44,6 @@ if( sessionStorage.getItem("formData") === null){
   sessionStorage.setItem("billingShippingCheck", "false");
 }
 
-
 if( sessionStorage.getItem("formData") === null){
   sessionStorage.setItem("formData",
     JSON.stringify(
