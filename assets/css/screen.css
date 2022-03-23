@@ -130,23 +130,24 @@ input:focus::placeholder {
   overflow: hidden;
 }
 
+.notInput, .notInput input, .notInput label {
+  cursor: pointer;
+}
+
 li.hideinp {
   display: none;
 }
 
-#billShipCheck{
+#billShipCheck, .notInput #bill{
   grid-column: 1;
+  align-self: baseline;
+  height: max-content;
 }
 
-#billing .notInput label[for="billShipCheck"]  {
+#billing .notInput label[for="billShipCheck"], .notInput label[for="bill"] {
   grid-column-start: 2;
-  align-self: center;
+  align-self: baseline;
   padding-left: 0.2em;
-}
-
-form ol li #bill {
-  height: fit-content;
-  margin-right: 0.2em;
 }
 
 form ol .flex {
