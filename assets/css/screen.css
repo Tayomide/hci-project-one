@@ -130,6 +130,10 @@ input:focus::placeholder {
   overflow: hidden;
 }
 
+li.hideinp {
+  display: none;
+}
+
 form ol li #bill {
   height: fit-content;
   margin-right: 0.2em;
