@@ -18,6 +18,7 @@ html {
   font-size: 1.125em;/* 18/16 = 1.125em*/
   line-height: 1.2em;/* 21.6/18 = 1.2em*/
   overflow-x: hidden;
+  background-color: #E4F5FF;
 }
 
 input[type="checkbox"] {
@@ -42,6 +43,10 @@ h4 {
   font-weight: 550;
   display: inline;
   margin-bottom: 1.5em;
+}
+
+p, h4, label, legend, a, input{
+  color: #3E4146;
 }
 
 header {
@@ -108,10 +113,15 @@ form ol li label, form ol li input {
 
 form ol li input {
   font-size: 0.833333em; /* 15/18 = 0.833333em*/
-  border: 0.1px solid gray;
+  border: 0 solid gray;
   padding: 0 0 0 0.4em; /* 6/15 = 0.4em*/
   margin: 0;
   height: 2em;/* 24/18 = 1.6em*/
+  background-color: #CFEDFF;
+}
+
+form ol li input:hover, form ol li input:focus-within, form ol li input:focus{
+  background-color: #B1E2FF;
 }
 
 .notinput, .notinput input, .notinput label {
@@ -163,12 +173,11 @@ form ol .flex {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em;
-  background-color: #999;
 }
 
 #cart main section {
   grid-column: span 12;
-  background-color: #fff;
+  background-color: #B1E2FF;
   margin: 0 1em;
   border-radius: 0.1em;
   padding: 1em;
@@ -184,6 +193,8 @@ form ol .flex {
 
 a.edit {
   float: right;
+  color: #FF2929;
+  text-decoration: underline;
 }
 
 a.edit + p {
@@ -277,7 +288,7 @@ form li:after {
   content: attr(data-before);
   grid-column-start: 1;
   grid-column-end: -1;
-  color: red;
+  color: #FF2929;
   font-size: 0.75em;
 }
 
