@@ -20,7 +20,7 @@ html {
   overflow-x: hidden;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   border: 1px solid #ccc;
 }
 
@@ -134,7 +134,7 @@ input:focus::placeholder {
   overflow: hidden;
 }
 
-.notInput, .notInput input, .notInput label {
+.notinput, .notinput input, .notinput label {
   cursor: pointer;
 }
 
@@ -142,13 +142,13 @@ li.hideinp {
   display: none;
 }
 
-#billShipCheck, .notInput #bill{
+#billShipCheck, .notinput #bill{
   grid-column: 1;
   align-self: baseline;
   height: max-content;
 }
 
-#billing .notInput label[for="billShipCheck"], .notInput label[for="bill"] {
+#billing .notinput label[for="billShipCheck"], .notinput label[for="bill"] {
   grid-column-start: 2;
   align-self: baseline;
   padding-left: 0.2em;

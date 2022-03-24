@@ -225,8 +225,8 @@ function doForm() {
     }
     sessionStorage.setItem("formData", JSON.stringify(formData));
   } else {
-    errorlog = document.querySelectorAll("form li:not(.notInput) input");
-    listNode = document.querySelectorAll("form li:not(.notInput)");
+    errorlog = document.querySelectorAll("form li:not(.notinput) input");
+    listNode = document.querySelectorAll("form li:not(.notinput)");
     for ( i = 0; i < errorlog.length; i++) {
       if(!errorlog[i].checkValidity()){
         listNode[i].setAttribute('data-before', errorlog[i].validationMessage);
@@ -333,8 +333,8 @@ if(document.querySelector("main#shipping") !== null) {
 if(document.querySelector("main#billing") !== null) {
   if(sessionStorage.getItem("billingShippingCheck") === "true"){
     document.querySelector("#billShipCheck").checked = true;
-    for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
-      document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+    for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
+      document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
     }
   }
   main.addEventListener('click', function(event) {
@@ -360,13 +360,13 @@ if(document.querySelector("main#billing") !== null) {
         sessionStorage.setItem("billingShippingCheck", "true");
         doForm(1);
       } else if(event.target.checked){
-        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
-          document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
+          document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
         }
         sessionStorage.setItem("billingShippingCheck", "true");
       } else{
-        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notInput)").length; billCount++) {
-          document.querySelectorAll("form ol li:not(.notInput)")[billCount].classList.toggle("hideinp");
+        for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
+          document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
         }
         sessionStorage.setItem("billingShippingCheck", "false");
       }
