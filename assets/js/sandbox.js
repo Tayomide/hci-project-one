@@ -103,6 +103,48 @@ if( sessionStorage.getItem("formData") === null){
             expiry : "",
             cvv : ""
           }
+        },
+        errorInstruction : {
+          country : {
+            0 : ["[a-zA-Z]", "Please fill out this field with characters."]
+          },
+          fullName : {
+            0 : ["[a-zA-Z]", "Please fill out this field with characters."],
+            1 : ["\\w \\w", "Please enter a second name for better indentification"]
+          },
+          phoneNumber : {
+            0 :  ["/+|[0-9]", "Please fill out this field with numbers."],
+            1 : ["^(?:[+\\d][0-9]+)$", "Phone number must have integers or + for area code"]
+          },
+          address1 : {
+            0 :  ["[a-zA-Z]", "Please fill out this field with characters."],
+            1 : ["\\w \\w", "Please enter more information for better transportation"]
+          },
+          state : {
+            0 :  ["[a-zA-Z]", "Please fill out this field with characters."]
+          },
+          city : {
+            0 :  ["[a-zA-Z]", "Please fill out this field with characters."]
+          },
+          zip : {
+            0 :  ["[0-9]", "Please fill out this field with numbers."],
+            1 : ["^[0-9]{5}$", "Zip code can only be five digits long"]
+          },
+          name : {
+            0 :   ["[a-zA-Z]", "Please fill out this field with characters."],
+            1 : ["\\w \\w", "Please enter the second name and initial from card"]
+          },
+          number : {
+            0 :  ["[0-9]", "Please fill out this field with numbers."],
+            1 : ["^[0-9]+$", "Please input integers only for card number"]
+          },
+          expiry : {
+            0 :  ["//|[0-9]", "Please fill out this field with date format."]
+          },
+          cvv : {
+            0 :  ["[0-9]", "Please fill out this field with numbers."],
+            1 : ["^[0-9]{3,4}$", "Please input an integer within range of 3 to 4 numbers"]
+          }
         }
       }
     )
