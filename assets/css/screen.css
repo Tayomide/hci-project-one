@@ -20,6 +20,10 @@ html {
   overflow-x: hidden;
 }
 
+input[type="checkbox"]{
+  border: 1px solid #ccc;
+}
+
 button {
   padding: 0;
   border: 0;
