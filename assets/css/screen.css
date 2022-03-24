@@ -89,6 +89,11 @@ form {
   grid-column-start: 2;
 }
 
+nav li {
+  transition: all 0.2s;
+  border-bottom: 0.09em solid transparent;
+}
+
 form ol {
   display: grid;
   grid-template-columns: repeat( 4, 1fr);
@@ -120,16 +125,16 @@ form ol li input {
   background-color: #CFEDFF;
 }
 
-form ol li input:hover, form ol li input:focus-within, form ol li input:focus {
-  background-color: #B1E2FF;
-}
-
 .notinput, .notinput input, .notinput label {
   cursor: pointer;
 }
 
 form ol .flex input, form ol .flex label {
   cursor: pointer;
+}
+
+form ol li input:hover, form ol li input:focus-within, form ol li input:focus {
+  background-color: #B1E2FF;
 }
 
 form ol li input:focus-visible {
@@ -166,11 +171,6 @@ li.hideinp {
 
 form ol .flex {
   align-items: baseline;
-}
-
-nav li {
-  transition: all 0.2s;
-  border-bottom: 0.09em solid transparent;
 }
 
 nav li:hover {
