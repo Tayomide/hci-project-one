@@ -208,7 +208,6 @@ function inputValidator(input) {
   var a;
   var errorcheck = false;
   var formData = JSON.parse(sessionStorage.getItem("formData"));
-  console.log(input);
   for( a = Object.keys(formData.errorInstruction[input.id]).length - 1; a >= 0; a--){
     if(!RegExp(formData.errorInstruction[input.id][a][0]).test(input.value)){
       input.setCustomValidity(formData.errorInstruction[input.id][a][1]);
@@ -383,7 +382,31 @@ if(document.querySelector("main#home") !== null) {
 // Shipping
 if(document.querySelector("main#shipping") !== null) {
   main.addEventListener('change', function(event) {
+    var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
+    console.log(987654);
+    if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
+      try {
+        errorcheck = inputValidator(event.target);
+        if(errorcheck) {
+          event.target.parentNode.parentNode.setAttribute('data-before', event.target.validationMessage);
+        } else {
+          event.target.parentNode.parentNode.setAttribute('data-before', '');
+        }
+      } catch (e) {
+        event.target.parentNode.parentNode.setAttribute('data-before', '');
+      }
+
+    }
+    if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET"){
+      console.log(12345);
+      errorcheck = inputValidator(event.target);
+      if(errorcheck) {
+        event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+      } else {
+        event.target.parentNode.setAttribute('data-before', '');
+      }
+    }
   });
   main.addEventListener('click', function(event) {
     if (event.target === document.querySelector("#shipping form button")) {
