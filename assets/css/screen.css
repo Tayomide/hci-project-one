@@ -309,7 +309,7 @@ a.edit + p {
   }
 }
 
-form li:after {
+form li:not(.notinput):after {
   content: attr(data-before);
   grid-column-start: 1;
   grid-column-end: -1;
