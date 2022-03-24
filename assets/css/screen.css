@@ -168,6 +168,26 @@ form ol .flex {
   align-items: baseline;
 }
 
+nav li{
+  transition: all 0.2s;
+  border-bottom: 0.09em solid transparent;
+}
+
+nav li:hover{
+  border-color: #35B4FF;
+}
+
+li.location{
+  border-bottom: 0.09em solid #35B4FF;
+  padding: 0 0.3em;
+  margin: 0 0.3em;
+}
+
+li.location:hover{
+  padding: 0 0.6em;
+  margin: 0;
+}
+
 /* Review Design */
 #cart main {
   display: grid;
