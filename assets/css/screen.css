@@ -165,7 +165,7 @@ li.hideinp {
 #billshipcheck, .notinput #bill {
   grid-column: 1;
   align-self: baseline;
-  height: max-content;
+  height: auto;
 }
 
 #billing .notinput label[for="billshipcheck"], .notinput label[for="bill"] {
