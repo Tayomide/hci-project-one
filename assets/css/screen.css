@@ -142,7 +142,7 @@ li.hideinp {
   display: none;
 }
 
-#billShipCheck, .notinput #bill{
+#billShipCheck, .notinput #bill {
   grid-column: 1;
   align-self: baseline;
   height: max-content;
@@ -195,7 +195,7 @@ a.edit + p {
 #shipping-address p:nth-last-child(3),
 #billing-address p:nth-last-child(1),
 #billing-address p:nth-last-child(2),
-#billing-address p:nth-last-child(3){
+#billing-address p:nth-last-child(3) {
   display: inline;
 }
 
@@ -266,15 +266,15 @@ a.edit + p {
     margin-bottom: 50vh;
     justify-content: space-between;
   }
-  header button.hide{
+  header button.hide {
     grid-column-start: 3;
     height: 100%;
     padding: 1em;
   }
 }
 
-form li:after{
-  content:attr(data-before);
+form li:after {
+  content: attr(data-before);
   grid-column-start: 1;
   grid-column-end: -1;
   color: red;
@@ -286,7 +286,7 @@ form li:after{
     display: grid;
     grid-template-columns: 1fr 900px 1fr;
   }
-  #home{
+  #home {
     display: block;
   }
   #cart #shopping-cart, #cart #order-summary {
