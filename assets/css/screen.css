@@ -45,7 +45,7 @@ h4 {
   margin-bottom: 1.5em;
 }
 
-p, h4, label, legend, a, input{
+p, h4, label, legend, a, input {
   color: #3E4146;
 }
 
@@ -120,7 +120,7 @@ form ol li input {
   background-color: #CFEDFF;
 }
 
-form ol li input:hover, form ol li input:focus-within, form ol li input:focus{
+form ol li input:hover, form ol li input:focus-within, form ol li input:focus {
   background-color: #B1E2FF;
 }
 
@@ -168,22 +168,22 @@ form ol .flex {
   align-items: baseline;
 }
 
-nav li{
+nav li {
   transition: all 0.2s;
   border-bottom: 0.09em solid transparent;
 }
 
-nav li:hover{
+nav li:hover {
   border-color: #35B4FF;
 }
 
-li.location{
+li.location {
   border-bottom: 0.09em solid #35B4FF;
   padding: 0 0.3em;
   margin: 0 0.3em;
 }
 
-li.location:hover{
+li.location:hover {
   padding: 0 0.6em;
   margin: 0;
 }
