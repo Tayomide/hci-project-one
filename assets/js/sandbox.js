@@ -167,7 +167,7 @@ function doForm() {
   var formData;
   var errorlog;
   var listNode;
-  var i;
+  var i, a;
   if(document.forms[0].checkValidity()) {
     formData = JSON.parse(sessionStorage.getItem("formData"));
     if(document.querySelector("main").id === "shipping") {
@@ -227,10 +227,16 @@ function doForm() {
   } else {
     errorlog = document.querySelectorAll("form li:not(.notinput) input");
     listNode = document.querySelectorAll("form li:not(.notinput)");
-    for ( i = 0; i < errorlog.length; i++) {
-      if(!errorlog[i].checkValidity()){
-        listNode[i].setAttribute('data-before', errorlog[i].validationMessage);
+    a = 0;
+    for ( i = 0; i < listNode.length; i++) {
+      console.log(a, errorlog[a]);
+      if(!errorlog[a].checkValidity()){
+        listNode[i].setAttribute('data-before', errorlog[a].validationMessage);
       }
+      if(listNode[i].childElementCount === 1){
+        a++;
+      }
+      a++;
     }
   }
 }
