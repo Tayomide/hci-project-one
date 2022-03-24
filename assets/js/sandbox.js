@@ -223,9 +223,25 @@ function doForm() {
   var formData;
   var errorlog;
   var listNode;
-  var i, a;
-  if(document.forms[0].checkValidity()) {
-    formData = JSON.parse(sessionStorage.getItem("formData"));
+  var i, b, errorcheck, validateStatus = true;
+  formData = JSON.parse(sessionStorage.getItem("formData"));
+  errorlog = document.querySelectorAll("form li:not(.notinput) input");
+  listNode = document.querySelectorAll("form li:not(.notinput)");
+  b = 0;
+  for ( i = 0; i < listNode.length; i++) {
+    errorcheck = inputValidator(errorlog[b]);
+    if (errorcheck){
+      listNode[i].setAttribute('data-before', errorlog[b].validationMessage);
+      validateStatus = false;
+    } else {
+      listNode[i].setAttribute('data-before', "");
+    }
+    if(listNode[i].childElementCount === 1){ // skip address2
+      b++;
+    }
+    b++;
+  }
+  if(validateStatus) {
     if(document.querySelector("main").id === "shipping") {
       if(document.querySelector("#bill").checked) {
         formData.formSubmission.shipping = {
@@ -280,20 +296,6 @@ function doForm() {
       location.assign("../cart");
     }
     sessionStorage.setItem("formData", JSON.stringify(formData));
-  } else {
-    errorlog = document.querySelectorAll("form li:not(.notinput) input");
-    listNode = document.querySelectorAll("form li:not(.notinput)");
-    a = 0;
-    for ( i = 0; i < listNode.length; i++) {
-      console.log(a, errorlog[a]);
-      if(!errorlog[a].checkValidity()){
-        listNode[i].setAttribute('data-before', errorlog[a].validationMessage);
-      }
-      if(listNode[i].childElementCount === 1){
-        a++;
-      }
-      a++;
-    }
   }
 }
 
