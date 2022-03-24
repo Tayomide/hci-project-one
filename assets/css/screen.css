@@ -248,7 +248,7 @@ a.edit + p {
   .nothide {
     position: absolute;
     visibility: hidden;
-    display: none!important;
+    display: none;
   }
   .hide button {
     width: 100%;
