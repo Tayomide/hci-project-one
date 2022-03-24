@@ -228,7 +228,7 @@ a.edit + p {
   content: "CVV: ";
 }
 
-@media (max-width: 500px) {
+@media (max-width: 31.25em) { /* 500px/16em */
   main > nav {
     flex-direction: column;
     height: max-content;
@@ -281,10 +281,10 @@ form li:after {
   font-size: 0.75em;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 56.25em) { /* 900px/16 = 56.25em*/
   main {
     display: grid;
-    grid-template-columns: 1fr 900px 1fr;
+    grid-template-columns: 1fr 56.25em 1fr; /* 900px/16 = 56.25em */
   }
   #home {
     display: block;
