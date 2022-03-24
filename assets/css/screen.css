@@ -157,13 +157,13 @@ li.hideinp {
   display: none;
 }
 
-#billShipCheck, .notinput #bill {
+#billshipcheck, .notinput #bill {
   grid-column: 1;
   align-self: baseline;
   height: max-content;
 }
 
-#billing .notinput label[for="billShipCheck"], .notinput label[for="bill"] {
+#billing .notinput label[for="billshipcheck"], .notinput label[for="bill"] {
   grid-column-start: 2;
   align-self: baseline;
   padding-left: 0.2em;

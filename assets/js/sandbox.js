@@ -332,7 +332,7 @@ if(document.querySelector("main#shipping") !== null) {
 // Billing
 if(document.querySelector("main#billing") !== null) {
   if(sessionStorage.getItem("billingShippingCheck") === "true"){
-    document.querySelector("#billShipCheck").checked = true;
+    document.querySelector("#billshipcheck").checked = true;
     for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
       document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
     }
@@ -347,7 +347,7 @@ if(document.querySelector("main#billing") !== null) {
   main.addEventListener('change', function(event) {
     storeUserInput(event.target, document.querySelector("main").id);
     formDataBill = JSON.parse(sessionStorage.getItem("formData"));
-    if(event.target.id === "billShipCheck"){
+    if(event.target.id === "billshipcheck"){
       if(event.target.checked && JSON.stringify(formDataBill.formSubmission.shipping) !== JSON.stringify(formDataBill.formSubmission.billing)){
         document.forms[0].country.value = formDataBill.formInput.shipping.country;
         document.forms[0].fullname.value = formDataBill.formInput.shipping.fullName;
