@@ -231,9 +231,11 @@ function doForm() {
     errorcheck = inputValidator(errorlog[b]);
     if (errorcheck){
       listNode[i].setAttribute('data-before', errorlog[b].validationMessage);
+      event.target.setAttribute("role", "alert");
       validateStatus = false;
     } else {
       listNode[i].setAttribute('data-before', "");
+      event.target.removeAttribute("role");
     }
     if(listNode[i].childElementCount === 1){ // skip address2
       b++;
@@ -384,7 +386,6 @@ if(document.querySelector("main#shipping") !== null) {
   main.addEventListener('change', function(event) {
     var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
-    console.log(987654);
     if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
       try {
         errorcheck = inputValidator(event.target);
@@ -403,8 +404,10 @@ if(document.querySelector("main#shipping") !== null) {
       errorcheck = inputValidator(event.target);
       if(errorcheck) {
         event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+        event.target.setAttribute("role", "alert");
       } else {
         event.target.parentNode.setAttribute('data-before', '');
+        event.target.removeAttribute("role", "alert");
       }
     }
   });
