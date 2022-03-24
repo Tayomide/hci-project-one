@@ -114,6 +114,10 @@ form ol li input {
   height: 2em;/* 24/18 = 1.6em*/
 }
 
+.notinput, .notinput input, .notinput label {
+  cursor: pointer;
+}
+
 form ol .flex input, form ol .flex label {
   cursor: pointer;
 }
@@ -132,10 +136,6 @@ input:focus::placeholder {
 
 .overflow {
   overflow: hidden;
-}
-
-.notinput, .notinput input, .notinput label {
-  cursor: pointer;
 }
 
 li.hideinp {
