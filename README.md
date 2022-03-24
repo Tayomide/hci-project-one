@@ -11,3 +11,5 @@ Design for straightforward, engaging entry of personal information. Include
 friendly, frictionless client-side tests and alerts for malformed, missing, or
 incomplete information. And bring a full suite of validators, linters, and
 visual regression tests to ensure code quality from your earliest commits.
+
+color pallete: https://paletton.com/#uid=a3F5-0kdqY600++00++++vV3Ydg
