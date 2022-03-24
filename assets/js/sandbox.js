@@ -435,7 +435,32 @@ if(document.querySelector("main#billing") !== null) {
     }
   });
   main.addEventListener('change', function(event) {
+    var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
+    if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
+      try {
+        errorcheck = inputValidator(event.target);
+        if(errorcheck) {
+          event.target.parentNode.parentNode.setAttribute('data-before', event.target.validationMessage);
+        } else {
+          event.target.parentNode.parentNode.setAttribute('data-before', '');
+        }
+      } catch (e) {
+        event.target.parentNode.parentNode.setAttribute('data-before', '');
+      }
+
+    }
+    if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET"){
+      console.log(12345);
+      errorcheck = inputValidator(event.target);
+      if(errorcheck) {
+        event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+        event.target.setAttribute("role", "alert");
+      } else {
+        event.target.parentNode.setAttribute('data-before', '');
+        event.target.removeAttribute("role", "alert");
+      }
+    }
     formDataBill = JSON.parse(sessionStorage.getItem("formData"));
     if(event.target.id === "billshipcheck"){
       if(event.target.checked && JSON.stringify(formDataBill.formSubmission.shipping) !== JSON.stringify(formDataBill.formSubmission.billing)){
@@ -473,7 +498,32 @@ if(document.querySelector("main#payment") !== null) {
     }
   });
   main.addEventListener('change', function(event) {
+    var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
+    if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
+      try {
+        errorcheck = inputValidator(event.target);
+        if(errorcheck) {
+          event.target.parentNode.parentNode.setAttribute('data-before', event.target.validationMessage);
+        } else {
+          event.target.parentNode.parentNode.setAttribute('data-before', '');
+        }
+      } catch (e) {
+        event.target.parentNode.parentNode.setAttribute('data-before', '');
+      }
+
+    }
+    if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET"){
+      console.log(12345);
+      errorcheck = inputValidator(event.target);
+      if(errorcheck) {
+        event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+        event.target.setAttribute("role", "alert");
+      } else {
+        event.target.parentNode.setAttribute('data-before', '');
+        event.target.removeAttribute("role");
+      }
+    }
   });
 }
 
