@@ -399,7 +399,7 @@ if(document.querySelector("main#shipping") !== null) {
       }
 
     }
-    if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET"){
+    if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET" && event.target.type !== "checkbox"){
       errorcheck = inputValidator(event.target);
       if(errorcheck) {
         event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
