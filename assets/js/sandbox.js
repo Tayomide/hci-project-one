@@ -372,7 +372,7 @@ if(sessionStorage.getItem("cart_selector") === null){
 // Home
 if(document.querySelector("main#home") !== null) {
   makeOL(products, 'product-list', default_selector);
-  main.addEventListener('click', function(event) {
+  main.children[1].addEventListener('click', function(event) {
     for (counte = 0; counte < document.querySelector("ol").childElementCount; counte++) {
       if ( event.target === document.querySelector("ol li:nth-of-type("+(counte+1)+") button")) {
         cartFunction(counte);
@@ -383,7 +383,7 @@ if(document.querySelector("main#home") !== null) {
 
 // Shipping
 if(document.querySelector("main#shipping") !== null) {
-  main.addEventListener('change', function(event) {
+  main.children[1].addEventListener('change', function(event) {
     var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
     if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
@@ -411,7 +411,7 @@ if(document.querySelector("main#shipping") !== null) {
       }
     }
   });
-  main.addEventListener('click', function(event) {
+  main.children[1].addEventListener('click', function(event) {
     if (event.target === document.querySelector("#shipping form button")) {
       doForm(0);
       event.preventDefault();
@@ -427,14 +427,14 @@ if(document.querySelector("main#billing") !== null) {
       document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
     }
   }
-  main.addEventListener('click', function(event) {
+  main.children[1].addEventListener('click', function(event) {
     formDataBill = JSON.parse(sessionStorage.getItem("formData"));
     if (event.target === document.querySelector("#billing form button[type='submit']")) {
       doForm(1);
       event.preventDefault();
     }
   });
-  main.addEventListener('change', function(event) {
+  main.children[1].addEventListener('change', function(event) {
     var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
     if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
@@ -491,13 +491,13 @@ if(document.querySelector("main#billing") !== null) {
 
 // Payment
 if(document.querySelector("main#payment") !== null) {
-  main.addEventListener('click', function(event) {
+  main.children[1].addEventListener('click', function(event) {
     if (event.target === document.querySelector("#payment form button")) {
       doForm(2);
       event.preventDefault();
     }
   });
-  main.addEventListener('change', function(event) {
+  main.children[1].addEventListener('change', function(event) {
     var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
     if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
