@@ -208,7 +208,6 @@ function inputValidator(input) {
   var a;
   var errorcheck = false;
   var formData = JSON.parse(sessionStorage.getItem("formData"));
-  console.log(formData.errorInstruction[input.id]);
   for( a = Object.keys(formData.errorInstruction[input.id]).length - 1; a >= 0; a--){
     if(!RegExp(formData.errorInstruction[input.id][a][0]).test(input.value)){
       input.setCustomValidity(formData.errorInstruction[input.id][a][1]);
