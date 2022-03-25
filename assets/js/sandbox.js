@@ -51,8 +51,8 @@ if( sessionStorage.getItem("formData") === null){
         formSubmission : {
           shipping : {
             country : "",
-            fullName: "",
-            phoneNumber : "",
+            fullname: "",
+            phonenumber : "",
             address1 : "",
             address2 : "",
             state : "",
@@ -61,8 +61,8 @@ if( sessionStorage.getItem("formData") === null){
           },
           billing : {
             country : "",
-            fullName: "",
-            phoneNumber : "",
+            fullname: "",
+            phonenumber : "",
             address1 : "",
             address2 : "",
             state : "",
@@ -79,8 +79,8 @@ if( sessionStorage.getItem("formData") === null){
         formInput : {
           shipping : {
             country : "",
-            fullName: "",
-            phoneNumber : "",
+            fullname: "",
+            phonenumber : "",
             address1 : "",
             address2 : "",
             state : "",
@@ -89,8 +89,8 @@ if( sessionStorage.getItem("formData") === null){
           },
           billing : {
             country : "",
-            fullName: "",
-            phoneNumber : "",
+            fullname: "",
+            phonenumber : "",
             address1 : "",
             address2 : "",
             state : "",
@@ -108,11 +108,11 @@ if( sessionStorage.getItem("formData") === null){
           country : {
             0 : ["[a-zA-Z]", "Please fill out this field with characters."]
           },
-          fullName : {
+          fullname : {
             0 : ["[a-zA-Z]", "Please fill out this field with characters."],
             1 : ["\\w \\w", "Please enter a second name for better indentification"]
           },
-          phoneNumber : {
+          phonenumber : {
             0 :  ["/+|[0-9]", "Please fill out this field with numbers."],
             1 : ["^(?:[+\\d][0-9]+)$", "Phone number must have integers or + for area code"]
           },
@@ -208,6 +208,7 @@ function inputValidator(input) {
   var a;
   var errorcheck = false;
   var formData = JSON.parse(sessionStorage.getItem("formData"));
+  console.log(formData.errorInstruction[input.id]);
   for( a = Object.keys(formData.errorInstruction[input.id]).length - 1; a >= 0; a--){
     if(!RegExp(formData.errorInstruction[input.id][a][0]).test(input.value)){
       input.setCustomValidity(formData.errorInstruction[input.id][a][1]);
@@ -247,8 +248,8 @@ function doForm() {
       if(document.querySelector("#bill").checked) {
         formData.formSubmission.shipping = {
           country : document.forms[0].country.value,
-          fullName : document.forms[0].fullname.value,
-          phoneNumber : document.forms[0].telephone.value,
+          fullname : document.forms[0].fullname.value,
+          phonenumber : document.forms[0].telephone.value,
           address1 : document.forms[0].address[0].value,
           address2 : document.forms[0].address[1].value,
           city : document.forms[0].city.value,
@@ -262,8 +263,8 @@ function doForm() {
       } else {
         formData.formSubmission.shipping = {
           country : document.forms[0].country.value,
-          fullName : document.forms[0].fullname.value,
-          phoneNumber : document.forms[0].telephone.value,
+          fullname : document.forms[0].fullname.value,
+          phonenumber : document.forms[0].telephone.value,
           address1 : document.forms[0].address[0].value,
           address2 : document.forms[0].address[1].value,
           city : document.forms[0].city.value,
@@ -276,8 +277,8 @@ function doForm() {
     } else if (document.querySelector("main").id === "billing") {
       formData.formSubmission.billing = {
         country : document.forms[0].country.value,
-        fullName : document.forms[0].fullname.value,
-        phoneNumber : document.forms[0].telephone.value,
+        fullname : document.forms[0].fullname.value,
+        phonenumber : document.forms[0].telephone.value,
         address1 : document.forms[0].address[0].value,
         address2 : document.forms[0].address[1].value,
         city : document.forms[0].city.value,
@@ -315,8 +316,8 @@ function populate(){
   var mainId = document.querySelector("main").id;
   if(mainId === "shipping") {
     document.forms[0].country.value = formData.formInput[mainId].country;
-    document.forms[0].fullname.value = formData.formInput[mainId].fullName;
-    document.forms[0].telephone.value = formData.formInput[mainId].phoneNumber;
+    document.forms[0].fullname.value = formData.formInput[mainId].fullname;
+    document.forms[0].telephone.value = formData.formInput[mainId].phonenumber;
     document.forms[0].address[0].value = formData.formInput[mainId].address1;
     document.forms[0].address[1].value = formData.formInput[mainId].address2;
     document.forms[0].city.value = formData.formInput[mainId].city;
@@ -324,8 +325,8 @@ function populate(){
     document.forms[0].zip.value = formData.formInput[mainId].zip;
   } else if(mainId === "billing"){// billing
     document.forms[0].country.value = formData.formInput[mainId].country;
-    document.forms[0].fullname.value = formData.formInput[mainId].fullName;
-    document.forms[0].telephone.value = formData.formInput[mainId].phoneNumber;
+    document.forms[0].fullname.value = formData.formInput[mainId].fullname;
+    document.forms[0].telephone.value = formData.formInput[mainId].phonenumber;
     document.forms[0].address[0].value = formData.formInput[mainId].address1;
     document.forms[0].address[1].value = formData.formInput[mainId].address2;
     document.forms[0].city.value = formData.formInput[mainId].city;
@@ -463,8 +464,8 @@ if(document.querySelector("main#billing") !== null) {
     if(event.target.id === "billshipcheck"){
       if(event.target.checked && JSON.stringify(formDataBill.formSubmission.shipping) !== JSON.stringify(formDataBill.formSubmission.billing)){
         document.forms[0].country.value = formDataBill.formInput.shipping.country;
-        document.forms[0].fullname.value = formDataBill.formInput.shipping.fullName;
-        document.forms[0].telephone.value = formDataBill.formInput.shipping.phoneNumber;
+        document.forms[0].fullname.value = formDataBill.formInput.shipping.fullname;
+        document.forms[0].telephone.value = formDataBill.formInput.shipping.phonenumber;
         document.forms[0].address[0].value = formDataBill.formInput.shipping.address1;
         document.forms[0].address[1].value = formDataBill.formInput.shipping.address2;
         document.forms[0].city.value = formDataBill.formInput.shipping.city;
