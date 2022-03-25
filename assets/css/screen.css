@@ -209,13 +209,13 @@ li.location:hover {
 }
 
 /* Review Design */
-#cart main {
+body main#cart {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 1em;
 }
 
-#cart main section {
+body main#cart section {
   grid-column: span 12;
   background-color: #B1E2FF;
   margin: 0 1em;
@@ -223,11 +223,11 @@ li.location:hover {
   padding: 1em;
 }
 
-#cart main #shopping-cart {
+body main#cart #shopping-cart {
   margin-top: 1em;
 }
 
-#cart main #billing-address {
+body main#cart #billing-address {
   margin-bottom: 1em;
 }
 
