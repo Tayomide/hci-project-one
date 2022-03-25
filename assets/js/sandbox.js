@@ -400,7 +400,6 @@ if(document.querySelector("main#shipping") !== null) {
 
     }
     if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET"){
-      console.log(12345);
       errorcheck = inputValidator(event.target);
       if(errorcheck) {
         event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
@@ -451,7 +450,6 @@ if(document.querySelector("main#billing") !== null) {
 
     }
     if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET" && event.target.type !== "checkbox"){
-      console.log(event.target);
       errorcheck = inputValidator(event.target);
       if(errorcheck) {
         event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
@@ -501,7 +499,6 @@ if(document.querySelector("main#payment") !== null) {
     var errorcheck;
     storeUserInput(event.target, document.querySelector("main").id);
     if(!("notinput" in event.target.parentNode.classList)){
-      console.log(12345);
       errorcheck = inputValidator(event.target);
       if(errorcheck) {
         event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
