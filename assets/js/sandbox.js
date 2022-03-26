@@ -352,6 +352,72 @@ function transform(){
   }
 }
 
+function changeEventFunction(event) {
+  var errorcheck;
+  storeUserInput(event.target, document.querySelector("main").id);
+  if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
+    try {
+      errorcheck = inputValidator(event.target);
+      if(errorcheck) {
+        event.target.parentNode.parentNode.setAttribute('data-before', event.target.validationMessage);
+      } else {
+        event.target.parentNode.parentNode.setAttribute('data-before', '');
+      }
+    } catch (e) {
+      event.target.parentNode.parentNode.setAttribute('data-before', '');
+    }
+
+  }
+  if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET" && event.target.type !== "checkbox"){
+    errorcheck = inputValidator(event.target);
+    if(errorcheck) {
+      event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+      event.target.setAttribute("role", "alert");
+    } else {
+      event.target.parentNode.setAttribute('data-before', '');
+      event.target.removeAttribute("role", "alert");
+    }
+  }
+}
+
+function shippingCheck(event) {
+  formDataBill = JSON.parse(sessionStorage.getItem("formData"));
+  if(event.target.id === "billshipcheck"){
+    if(event.target.checked && JSON.stringify(formDataBill.formSubmission.shipping) !== JSON.stringify(formDataBill.formSubmission.billing)){
+      document.forms[0].country.value = formDataBill.formSubmission.shipping.country;
+      document.forms[0].fullname.value = formDataBill.formSubmission.shipping.fullname;
+      document.forms[0].telephone.value = formDataBill.formSubmission.shipping.phonenumber;
+      document.forms[0].address[0].value = formDataBill.formSubmission.shipping.address1;
+      document.forms[0].address[1].value = formDataBill.formSubmission.shipping.address2;
+      document.forms[0].city.value = formDataBill.formSubmission.shipping.city;
+      document.forms[0].state.value = formDataBill.formSubmission.shipping.state;
+      document.forms[0].zip.value = formDataBill.formSubmission.shipping.zip;
+      sessionStorage.setItem("billingShippingCheck", "true");
+      doForm(1);
+    } else if(event.target.checked){
+      for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
+        document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
+      }
+      document.forms[0].country.value = formDataBill.formSubmission.shipping.country;
+      document.forms[0].fullname.value = formDataBill.formSubmission.shipping.fullname;
+      document.forms[0].telephone.value = formDataBill.formSubmission.shipping.phonenumber;
+      document.forms[0].address[0].value = formDataBill.formSubmission.shipping.address1;
+      document.forms[0].address[1].value = formDataBill.formSubmission.shipping.address2;
+      document.forms[0].city.value = formDataBill.formSubmission.shipping.city;
+      document.forms[0].state.value = formDataBill.formSubmission.shipping.state;
+      document.forms[0].zip.value = formDataBill.formSubmission.shipping.zip;
+      formDataBill.formInput.billing = formDataBill.formSubmission.shipping;
+      sessionStorage.setItem("formData", JSON.stringify(formDataBill));
+      sessionStorage.setItem("billingShippingCheck", "true");
+    } else{
+      for ( billCount = 0; billCount < document.querySelectorAll("form ol li:not(.notinput)").length; billCount++) {
+        document.querySelectorAll("form ol li:not(.notinput)")[billCount].classList.toggle("hideinp");
+      }
+      sessionStorage.setItem("billingShippingCheck", "false");
+    }
+  }
+}
+
 document.querySelectorAll("button.hide")[0].addEventListener("click", function(){
   toggletransform();
 });
