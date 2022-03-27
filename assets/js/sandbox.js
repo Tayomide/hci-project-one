@@ -225,19 +225,19 @@ function doForm() {
   var i, b, errorcheck, validateStatus = true;
   formData = JSON.parse(sessionStorage.getItem("formData"));
   errorlog = document.querySelectorAll("form li:not(.notinput) input");
-  listNode = document.querySelectorAll("form li:not(.notinput)");
+  listNode = document.querySelectorAll("form li:not(.notinput) p.error");
   b = 0;
   for ( i = 0; i < listNode.length; i++) {
     errorcheck = inputValidator(errorlog[b]);
     if (errorcheck){
-      listNode[i].setAttribute('data-before', errorlog[b].validationMessage);
+      listNode[i].innerText = errorlog[b].validationMessage;
       event.target.setAttribute("role", "alert");
       validateStatus = false;
     } else {
-      listNode[i].setAttribute('data-before', "");
+      listNode[i].innerText = "";
       event.target.removeAttribute("role");
     }
-    if(listNode[i].childElementCount === 1){ // skip address2
+    if(listNode[i].parentNode.tagName === "FIELDSET"){ // skip address2
       b++;
     }
     b++;
@@ -355,26 +355,13 @@ function transform(){
 function changeEventFunction(event) {
   var errorcheck;
   storeUserInput(event.target, document.querySelector("main").id);
-  if(event.target.parentNode.tagName === "FIELDSET"){ // Address makes things messy
-    try {
-      errorcheck = inputValidator(event.target);
-      if(errorcheck) {
-        event.target.parentNode.parentNode.setAttribute('data-before', event.target.validationMessage);
-      } else {
-        event.target.parentNode.parentNode.setAttribute('data-before', '');
-      }
-    } catch (e) {
-      event.target.parentNode.parentNode.setAttribute('data-before', '');
-    }
-
-  }
-  if(!("notinput" in event.target.parentNode.classList) && event.target.parentNode.tagName !== "FIELDSET" && event.target.type !== "checkbox"){
+  if(!("notinput" in event.target.parentNode.classList) && event.target.type !== "checkbox"){
     errorcheck = inputValidator(event.target);
     if(errorcheck) {
-      event.target.parentNode.setAttribute('data-before', event.target.validationMessage);
+      event.target.parentNode.getElementsByClassName("error")[0].innerText = event.target.validationMessage;
       event.target.setAttribute("role", "alert");
     } else {
-      event.target.parentNode.setAttribute('data-before', '');
+      event.target.parentNode.getElementsByClassName("error")[0].innerText = "";
       event.target.removeAttribute("role", "alert");
     }
   }
