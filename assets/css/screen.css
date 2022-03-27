@@ -324,8 +324,7 @@ a.edit + p {
   }
 }
 
-form li:not(.notinput):after {
-  content: attr(data-before);
+form li .error{
   grid-column-start: 1;
   grid-column-end: -1;
   color: #FF2929;
