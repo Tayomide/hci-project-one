@@ -60,16 +60,19 @@
             <label for="country">Country/Region</label>
             <input type="text" id="country" name="country" placeholder="Nigeria"
 required="required" autocomplete="country-name" list="countrylist"/>
+            <p class="error"> </p>
           </li>
           <li>
             <label for="fullname">Full Name</label>
             <input type="text" id="fullname" name="fullname" placeholder="Tomriwa Abraham I" required="required" autocomplete="name"/>
+            <p class="error"> </p>
           </li>
           <li>
             <label for="phonenumber">Phone Number</label>
             <!-- Check type tel online -->
             <input type="tel" id="phonenumber" name="telephone"
 required="required" autocomplete="tel-national"/>
+            <p class="error"> </p>
           </li>
           <li>
             <fieldset> <!-- I made it a field set in respect for accesibility -->
@@ -77,21 +80,25 @@ required="required" autocomplete="tel-national"/>
               <input type="text" id="address1" name="address" placeholder="3241 S Wabash Street Chicago" required="required"
               autocomplete="street-address"/>
               <input type="text" id="address2" name="address" placeholder="Romm 201 Hermit Hall" autocomplete="address-level3"/>
+              <p class="error"> </p>
             </fieldset>
           </li>
           <li class="half">
             <label for="state">State</label>
             <input type="text" id="state" name="state" placeholder="Illinois" required="required"/>
+            <p class="error"> </p>
           </li>
           <li class="half">
             <label for="city">City</label>
             <input type="text" id="city" name="city" placeholder="Port-harcourt"
 required="required"/>
+            <p class="error"> </p>
           </li>
           <li class="half">
             <label for="zip">Zip Code</label>
             <input type="number" id="zip" name="zip" placeholder="11111"
 required="required" autocomplete="postal-code" min="10000" max="99999" />
+            <p class="error"> </p>
           </li>
           <li class="notinput">
             <input type="checkbox" id="bill" name="bill"/>
